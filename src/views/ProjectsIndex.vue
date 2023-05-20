@@ -82,9 +82,9 @@ export default {
         this.myInfo = response.data;
       });
     },
-    getProjects: function() {
-      axios.get("/wp/v2/projects").then(response => {
-        console.log("projects ->", response);
+    getResume: function() {
+      axios.get("/wp/v2/resumes").then(response => {
+        console.log("resume ->", response);
         this.projects = response.data;
       });
     },

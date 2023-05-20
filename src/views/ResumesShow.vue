@@ -249,12 +249,12 @@ export default {
   data: function() {
     return {
       myInfo: {},
-      project: {},
+      resume: {},
     };
   },
   created: function() {
     this.getMyInfo();
-    this.getProjects();
+    this.getResume();
   },
   methods: {
     getMyInfo: function() {
@@ -263,10 +263,10 @@ export default {
         this.myInfo = response.data;
       });
     },
-    getProjects: function() {
-      axios.get("/wp/v2/projects/" + this.$route.params.id).then(response => {
-        console.log("project ->", response);
-        this.project = response.data;
+    getResume: function() {
+      axios.get("/wp/v2/resumes/" + this.$route.params.id).then(response => {
+        console.log("resume ->", response);
+        this.resume = response.data;
       });
     },
   },
