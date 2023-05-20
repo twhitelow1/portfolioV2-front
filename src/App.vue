@@ -2,7 +2,7 @@
   <div id="app">
     <header class="header text-center">	    
     <div class="force-overflow">
-    <h1 class="blog-name pt-lg-4 mb-0"><a href="index-2.html">Simon Doe</a></h1>
+    <h1 class="blog-name pt-lg-4 mb-0"><a href="index-2.html">{{ myInfo.acf.first_name + ' '+ myInfo.acf.last_name }}</a></h1>
     
     <nav class="navbar navbar-expand-lg navbar-dark" >
       
@@ -12,14 +12,13 @@
       
       <div id="navigation" class="collapse navbar-collapse flex-column" >
         <div class="profile-section pt-3 pt-lg-0">
-          <img class="profile-image mb-3 rounded-circle mx-auto" src="assets/images/profile.png" alt="image" >			
+          <img class="profile-image mb-3 rounded-circle mx-auto" v-bind:src="myInfo.acf.headshot1" alt="image" >			
           
-          <div class="bio mb-3">Hi, my name is Todd Whitelow and I'm a senior software engineer. Welcome to my personal website!</div><!--//bio-->
+          <div class="bio mb-3">{{myInfo.acf.tagline}}</div><!--//bio-->
           <ul class="social-list list-inline py-2 mx-auto">
-            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter fa-fw"></i></a></li>
-            <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
-            <li class="list-inline-item"><a href="#"><i class="fab fa-github-alt fa-fw"></i></a></li>
-            <li class="list-inline-item"><a href="#"><i class="fab fa-stack-overflow fa-fw"></i></a></li>
+            <li class="list-inline-item"><a v-bind:href="myInfo.acf.linkedin" alt="Todd Whitelow Jr's LinkedIn"><i class="fab fa-linkedin-in fa-fw" ></i></a></li>
+            <li class="list-inline-item"><a v-bind:href="myInfo.acf.github"><i class="fab fa-github-alt fa-fw" alt="Todd Whitelow Jr's Github"></i></a></li>
+            <!-- <li class="list-inline-item"><a href="#"><i class="fab fa-stack-overflow fa-fw"></i></a></li> -->
             <li class="list-inline-item"><a href="#"><i class="fab fa-codepen fa-fw"></i></a></li>
           </ul><!--//social-list-->
           <hr> 
@@ -81,7 +80,7 @@
     <router-view/>
 
     <footer class="footer text-center py-4">
-      <small class="copyright">Template Copyright &copy; <a href="../../../index.html" target="_blank">3rd Wave Media</a></small>
+      <!-- <small class="copyright">Template Copyright &copy; <a href="../../../index.html" target="_blank">3rd Wave Media</a></small> -->
     </footer>
   
   </div><!--//main-wrapper-->
@@ -110,3 +109,38 @@
   color: #42b983;
 }
 </style>
+
+
+<script>
+// @ is an alias to /src
+import axios from "axios";
+
+export default {
+  data: function() {
+    return {
+      myInfo: [],
+      projects: [],
+    };
+  },
+  created: function() {
+    this.getMyInfo();
+    this.getProjects();
+  },
+  methods: {
+    getMyInfo: function() {
+      axios.get("/wp/v2/my-info/89").then(response => {
+        console.log("my-info ->", response);
+        this.myInfo = response.data;
+      });
+    },
+    getProjects: function() {
+      axios.get("/wp/v2/projects").then(response => {
+        console.log("projects ->", response);
+        this.projects = response.data;
+      });
+    },
+  },
+};
+</script>
+
+

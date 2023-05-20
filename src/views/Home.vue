@@ -5,16 +5,17 @@
       <div class="profile-teaser media flex-column flex-lg-row">
         
         <div class="media-body">
-          <h2 class="name font-weight-bold mb-1">Simon Doe</h2>
-          <div class="tagline mb-3">Senior Software Engineer</div>
-          <div class="bio mb-4">I'm a software engineer specialised in frontend and backend development for complex scalable web apps. I write about software development on <a class="link-on-bg" href="blog-home.html">my blog</a>. Want to know how I may help your project? Check out my project <a class="link-on-bg" href="projects.html">portfolio</a> and <a class="link-on-bg" href="resume.html">online resume</a>.
+          <h2 class="name font-weight-bold mb-1">{{myInfo.acf.first_name + ' ' + myInfo.acf.last_name}}</h2>
+          <div class="tagline mb-3">{{ myInfo.acf.position }}</div>
+          <div class="bio mb-4">{{ myInfo.acf.elevator_pitch }}. Want to know how I may help your project? Check out my project <a class="link-on-bg" href="projects.html">portfolio</a> and <a class="link-on-bg" href="resume.html">online resume</a>.
           </div><!--//bio-->
           <div class="mb-4">
             <a class="btn btn-primary mr-2 mb-3" href="portfolio.html"><i class="fas fa-arrow-alt-circle-right mr-2"></i><span class="d-none d-md-inline">View</span> Portfolio</a>
             <a class="btn btn-secondary mb-3" href="resume.html"><i class="fas fa-file-alt mr-2"></i><span class="d-none d-md-inline">View</span> Resume</a>
           </div>
         </div><!--//media-body-->
-        <img class="profile-image mb-3 mb-lg-0 ml-lg-5 mr-md-0" src="assets/images/profile-lg.jpg" alt="">
+        <img class="profile-image mb-3 mb-lg-0 ml-lg-5 mr-md-0" v-bind:src="myInfo.acf.headshot2" alt="Todd Whitelow's Headshot
+        ">
       </div>
     </div>
   </section><!--//about-me-section-->
@@ -99,13 +100,11 @@
         <div class="col-md-6 mb-5">
           <div class="card project-card">
             <div class="row no-gutters">
-              <div class="col-lg-4 card-img-holder">
-                <img src="assets/images/project/project-1.jpg" class="card-img" alt="image">
-              </div>
-              <div class="col-lg-8">
+              <div class="col-lg-12">
                 <div class="card-body">
-                  <h5 class="card-title"><a href="project.html" class="theme-link">Project Heading</a></h5>
-                  <p class="card-text">Project intro lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+                  <img v-bind:src="projects[0].acf.main_photo" class="card-img" alt="image">
+                  <h5 class="card-title"><a href="project.html" class="theme-link"> {{ projects[0].acf.project_name }}</a></h5>
+                  <p class="card-text">{{ projects[0].acf.short_description }}</p>
                   <p class="card-text"><small class="text-muted">Client: Google</small></p>
                 </div>
               </div>
@@ -255,12 +254,35 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import axios from "axios";
 
 export default {
+  data: function() {
+    return {
+      myInfo: {},
+      projects: [],
+    };
+  },
+  created: function() {
+    this.getMyInfo();
+    this.getProjects();
+  },
+  methods: {
+    getMyInfo: function() {
+      axios.get("/wp/v2/my-info/89").then(response => {
+        console.log("my-info ->", response);
+        this.myInfo = response.data;
+      });
+    },
+    getProjects: function() {
+      axios.get("/wp/v2/projects").then(response => {
+        console.log("projects ->", response);
+        this.projects = response.data;
+      });
+    },
+  },
   name: 'Home',
   components: {
-    HelloWorld
   }
-}
+};
 </script>
