@@ -17,8 +17,6 @@
 					    <div class="client-info">
 						    <h3 class="client-name font-weight-bold mb-4">Client Name: {{ project.acf.client_name }}</h3>
 						    <ul class="client-meta list-unstyled">
-							    <li class="mb-2"><i class="fas fa-industry fa-fw mr-2"></i><strong>Industry:</strong> Tech</li>
-							    <li class="mb-2"><i class="fas fa-users fa-fw mr-2"></i><strong>Size:</strong> 100+</li>
 							    <li class="mb-2"><strong><i class="fas fa-link fa-fw mr-2"></i>Website:</strong> <a class="theme-link" href="#">clientsite.com</a></li>
 							    
 						    </ul>
