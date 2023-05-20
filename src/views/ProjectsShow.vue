@@ -2,9 +2,9 @@
   <div class="project">
     <section class="cta-section theme-bg-light py-5">
 		    <div class="container single-col-max-width">
-			    <h2 class="heading text-center">Case Study: Project Name</h2>
+			    <h2 class="heading text-center">Case Study: {{ project.acf.project_name }}</h2>
 			    <div class="project-intro text-center">
-					<p class="mb-0 lead">Project intro goes here. In the intro it's a good idea to answer a potential client's need/problem so it's more likely to land your next project or job.</p>
+					<p class="mb-0 lead">{{ project.acf.short_description }}</p>
 				</div>
 			    
 		    </div><!--//container-->
@@ -15,7 +15,7 @@
 				    <img class="project-thumb mb-3 mb-md-0 mr-md-5 rounded d-none d-md-inline-block" src="assets/images/project/project-3.jpg" alt="">
 					<div class="media-body">
 					    <div class="client-info">
-						    <h3 class="client-name font-weight-bold mb-4">Client Name</h3>
+						    <h3 class="client-name font-weight-bold mb-4">Client Name: {{ project.acf.client_name }}</h3>
 						    <ul class="client-meta list-unstyled">
 							    <li class="mb-2"><i class="fas fa-industry fa-fw mr-2"></i><strong>Industry:</strong> Tech</li>
 							    <li class="mb-2"><i class="fas fa-users fa-fw mr-2"></i><strong>Size:</strong> 100+</li>
@@ -142,7 +142,7 @@ export default {
   data: function() {
     return {
       myInfo: {},
-      projects: [],
+      projects: {},
     };
   },
   created: function() {
@@ -157,9 +157,9 @@ export default {
       });
     },
     getProjects: function() {
-      axios.get("/wp/v2/projects").then(response => {
-        console.log("projects ->", response);
-        this.projects = response.data;
+      axios.get("/wp/v2/projects/" + this.$route.params.id).then(response => {
+        console.log("project ->", response);
+        this.project = response.data;
       });
     },
   },
