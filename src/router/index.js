@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import ProjectsShow from '../views/ProjectsShow.vue';
 import ProjectsIndex from '../views/ProjectsIndex.vue';
+import ResumesShow from '../views/ProjectsSjow.vue';
 
 Vue.use(VueRouter);
 
@@ -29,6 +30,11 @@ const routes = [
     path: '/projects',
     name: 'projects-index',
     component: ProjectsIndex
+  },
+  {
+    path: '/resumes',
+    name: 'resumes-show',
+    component: ResumesShow
   },
 ];
 

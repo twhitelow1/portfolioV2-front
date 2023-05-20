@@ -36,7 +36,7 @@
 									<div class="card-body">
 										<h5 class="card-title"><a v-bind:href="`/projects/${project.id}`" class="theme-link">{{ project.acf.project_name }}</a></h5>
 										<p class="card-text">{{ project.acf.short_description }}</p>
-										<p class="card-text"><small class="text-muted">Client: {{project.client_name}}</small></p>
+										<p class="card-text"><small class="text-muted">Client: {{project.acf.client_name}}</small></p>
 									</div>
 								</div>
 							</div>

@@ -10,8 +10,8 @@
           <div class="bio mb-4">{{ myInfo.acf.elevator_pitch }}. Want to know how I may help your project? Check out my project <a class="link-on-bg" href="projects.html">portfolio</a> and <a class="link-on-bg" href="resume.html">online resume</a>.
           </div><!--//bio-->
           <div class="mb-4">
-            <a class="btn btn-primary mr-2 mb-3" href="portfolio.html"><i class="fas fa-arrow-alt-circle-right mr-2"></i><span class="d-none d-md-inline">View</span> Portfolio</a>
-            <a class="btn btn-secondary mb-3" href="resume.html"><i class="fas fa-file-alt mr-2"></i><span class="d-none d-md-inline">View</span> Resume</a>
+            <a class="btn btn-primary mr-2 mb-3" href="/projects"><i class="fas fa-arrow-alt-circle-right mr-2"></i><span class="d-none d-md-inline">View</span> Portfolio</a>
+            <a class="btn btn-secondary mb-3" href="/resume"><i class="fas fa-file-alt mr-2"></i><span class="d-none d-md-inline">View</span> Resume</a>
           </div>
         </div><!--//media-body-->
         <img class="profile-image mb-3 mb-lg-0 ml-lg-5 mr-md-0" v-bind:src="myInfo.acf.headshot2" alt="Todd Whitelow's Headshot

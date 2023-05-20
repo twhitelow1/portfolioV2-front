@@ -12,7 +12,7 @@
 	    <section class="project px-3 py-5 p-md-5">
 		    <div class="container">
 			    <div class="project-meta media flex-column flex-md-row p-4 theme-bg-light">
-				    <img class="project-thumb mb-3 mb-md-0 mr-md-5 rounded d-none d-md-inline-block" src="assets/images/project/project-3.jpg" alt="">
+				    <img class="project-thumb mb-3 mb-md-0 mr-md-5 rounded d-none d-md-inline-block" v-bind:src="project.acf.main_photo" alt="">
 					<div class="media-body">
 					    <div class="client-info">
 						    <h3 class="client-name font-weight-bold mb-4">Client Name: {{ project.acf.client_name }}</h3>
@@ -29,18 +29,18 @@
 					</div><!--//media-body-->
 				</div><!--//project-meta-->
 				<div class="project-sections py-5">
-					<div v-if="overview" class="project-section mb-5">
+					<div v-if="project.acf.overview" class="project-section mb-5">
 					    <h3 class="project-section-title mb-3">Project Overview</h3>
 					    <p> {{ project.acf.overview }} </p>
 					</div><!--//project-section-->
 					
-					<div v-if="challenge" class="project-section mb-5">
+					<div v-if="project.acf.challenge" class="project-section mb-5">
 					     <h3 class="project-section-title">The Challenge</h3>
 					    <p>{{ project.acf.challenge }}</p>
 					     
 					</div><!--//project-section-->
 					
-					<div v-if="approach_solutions" class="project-section mb-5">
+					<div v-if="project.acf.approach_solutions" class="project-section mb-5">
 					     <h3 class="project-section-title">The Approach &amp; Solution</h3>
 					    <p>{{ project.acf.approach_solutions }}</p>
 					    <div class="row mt-5">
@@ -77,7 +77,7 @@ export default {
   data: function() {
     return {
       myInfo: {},
-      projects: {},
+      project: {},
     };
   },
   created: function() {
