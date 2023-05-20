@@ -1,9 +1,10 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Project from '../views/Project.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Home from '../views/Home.vue';
+import ProjectsShow from '../views/ProjectsShow.vue';
+import ProjectsIndex from '../views/ProjectsIndex.vue';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
@@ -18,18 +19,23 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-  {
-    path: '/project',
-    name: 'Project',
-    component: Project
   },
-]
+  {
+    path: '/projects/:id',
+    name: 'projects-show',
+    component: ProjectsShow
+  },
+  {
+    path: '/projects',
+    name: 'projects-index',
+    component: ProjectsIndex
+  },
+];
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
-})
+});
 
-export default router
+export default router;
