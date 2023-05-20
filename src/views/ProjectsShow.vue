@@ -17,34 +17,32 @@
 					    <div class="client-info">
 						    <h3 class="client-name font-weight-bold mb-4">Client Name: {{ project.acf.client_name }}</h3>
 						    <ul class="client-meta list-unstyled">
-							    <li class="mb-2"><strong><i class="fas fa-link fa-fw mr-2"></i>Website:</strong> <a class="theme-link" href="#">clientsite.com</a></li>
+							    
+							    
+							    <li class="mb-2"><strong><i class="fas fa-link fa-fw mr-2"></i>Website:{{ project.acf.live_demo }}</strong> <a class="theme-link"></a></li>
 							    
 						    </ul>
-						    <div class="client-bio mb-4">Short description of the client and project requirements. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</div>
+						    <div class="client-bio mb-4">{{ project.acf.short_description }}</div>
 						    <h4 class="subheading mb-3">Project Requirements</h4>
-						    <ul class="mb-0">
-							    <li class="mb-2">Requirement lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-							    <li class="mb-2">Requirement donec pede justo, fringilla vel, aliquet nec.</li>
-							    <li class="mb-2">Requirement phasellus ullamcorper ipsum rutrum nunc. </li>
-						    </ul>
+						   {{ project.acf.requirements }}
 					    </div>					
 					</div><!--//media-body-->
 				</div><!--//project-meta-->
 				<div class="project-sections py-5">
-					<div class="project-section mb-5">
+					<div v-if="overview" class="project-section mb-5">
 					    <h3 class="project-section-title mb-3">Project Overview</h3>
-					    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. </p>
+					    <p> {{ project.acf.overview }} </p>
 					</div><!--//project-section-->
 					
-					<div class="project-section mb-5">
+					<div v-if="challenge" class="project-section mb-5">
 					     <h3 class="project-section-title">The Challenge</h3>
-					    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. </p>
+					    <p>{{ project.acf.challenge }}</p>
 					     
 					</div><!--//project-section-->
 					
-					<div class="project-section mb-5">
+					<div v-if="approach_solutions" class="project-section mb-5">
 					     <h3 class="project-section-title">The Approach &amp; Solution</h3>
-					    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. </p>
+					    <p>{{ project.acf.approach_solutions }}</p>
 					    <div class="row mt-5">
 						    <div class="col-12 col-lg-6 mb-5">
 							    <img class="img-fluid rounded" src="assets/images/project/project-figure-1.jpg" alt="image">
@@ -57,67 +55,6 @@
 					    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. </p>
 					     
 					</div><!--//project-section-->
-					
-					<div class="project-section mb-5">
-					     <h3 class="project-section-title mb-3">The Results</h3>
-					     
-					     <div class="metrics mb-4">
-						     <div class="row">
-							     <div class="metric col-6 col-xl-3 mb-3">
-								     <div class="inner p-3 theme-bg-light">
-									     <div class="metric-name">Efficiency</div>
-									     <div class="metric-data mb-2">20% <span class="unit">up</span></div>
-									     <div class="metric-desc">Metric description lorem ipsum dolor sit amet.</div>
-								     </div>
-							     </div><!--//metric-->
-							     <div class="metric col-6 col-xl-3 mb-3">
-								     <div class="inner p-3 theme-bg-light">
-									     <div class="metric-name">Customer Satisfaction</div>
-									     <div class="metric-data mb-2">14% <span class="unit">up</span></div>
-									     <div class="metric-desc">Metric description lorem ipsum dolor sit amet.</div>
-								     </div>
-							     </div><!--//metric-->
-							     <div class="metric col-6 col-xl-3 mb-3">
-								     <div class="inner p-3 theme-bg-light">
-									     <div class="metric-name">Sales Generated</div>
-									     <div class="metric-data mb-2">$130K</div>
-									     <div class="metric-desc">Metric description lorem ipsum dolor sit amet.</div>
-								     </div>
-							     </div><!--//metric-->
-							     <div class="metric col-6 col-xl-3 mb-3">
-								     <div class="inner p-3 theme-bg-light">
-									     <div class="metric-name">Overall Cost</div>
-									     <div class="metric-data mb-2">20% <span class="unit">down</span></div>
-									     <div class="metric-desc">Metric description lorem ipsum dolor sit amet.</div>
-								     </div>
-							     </div><!--//metric-->
-						     </div><!--//row-->
-					     </div><!--//metrics-->
-					     
-					    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. </p>
-					     
-					</div><!--//project-section-->
-					
-					<div class="project-section mb-5">
-					     <h3 class="project-section-title mb-3">Client Testimonial</h3>
-                    </div><!--//project-section-->
-				    <div class="client-quote">
-						<div class="quote-holder">
-							<blockquote class="quote-content">
-								Simon is a brilliant software engineer! Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis.
-							</blockquote>
-							<i class="fas fa-quote-left"></i>
-						</div><!--//quote-holder-->
-						<div class="source-holder">
-							<div class="source-profile">
-								<img src="assets/images/clients/profile-4.png" alt="image"/>
-							</div>
-							<div class="meta">
-								<div class="name">James Lee</div>
-								<div class="info">Product Manager, Amazon</div>
-							</div>
-						</div>
-					</div>
 				</div>
 		    </div>
 	    </section>
