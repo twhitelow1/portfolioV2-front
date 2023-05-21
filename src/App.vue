@@ -35,7 +35,7 @@
             <a class="nav-link" href="services.html"><i class="fas fa-briefcase fa-fw mr-2"></i>Services &amp; Pricing</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="resume.html"><i class="fas fa-file-alt fa-fw mr-2"></i>Resume</a>
+            <a class="nav-link" href="/resumes/55"><i class="fas fa-file-alt fa-fw mr-2"></i>Resume</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="blog-home.html"><i class="fas fa-blog fa-fw mr-2"></i>Blog</a>

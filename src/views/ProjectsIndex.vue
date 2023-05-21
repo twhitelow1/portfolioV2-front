@@ -82,8 +82,8 @@ export default {
         this.myInfo = response.data;
       });
     },
-    getResume: function() {
-      axios.get("/wp/v2/resumes").then(response => {
+    getProjects: function() {
+      axios.get("/wp/v2/projects").then(response => {
         console.log("resume ->", response);
         this.projects = response.data;
       });
