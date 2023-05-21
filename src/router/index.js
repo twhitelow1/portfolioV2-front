@@ -4,6 +4,9 @@ import Home from '../views/Home.vue';
 import ProjectsShow from '../views/ProjectsShow.vue';
 import ProjectsIndex from '../views/ProjectsIndex.vue';
 import ResumesShow from '../views/ResumesShow.vue';
+import Services from '../views/Services.vue';
+import BlogsIndex from '../views/BlogsIndex.vue';
+import BlogsShow from '../views/BlogsShow.vue';
 
 Vue.use(VueRouter);
 
@@ -36,6 +39,21 @@ const routes = [
     name: 'resumes-show',
     component: ResumesShow
   },
+  {
+    path: '/services',
+    name: 'services',
+    component: Services
+  },
+  {
+    path: '/blogs/:id',
+    name: 'blogs-show',
+    component: BlogsShow
+  },
+  {
+    path: '/blogs',
+    name: 'blogs-index',
+    component: BlogsIndex
+  }
 ];
 
 const router = new VueRouter({
