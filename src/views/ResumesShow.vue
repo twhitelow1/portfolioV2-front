@@ -14,15 +14,15 @@
     <div class="resume-header">
       <div class="row align-items-center">
         <div class="resume-title col-12 col-md-6 col-lg-8 col-xl-9">
-          <h2 class="resume-name mb-0 text-uppercase">Simon Doe</h2>
-          <div class="resume-tagline mb-3 mb-md-0">Senior Software Engineer</div>
+          <h2 class="resume-name mb-0 text-uppercase">{{myInfo.acf.first_name + ' ' + myInfo.acf.last_name}}</h2>
+          <div class="resume-tagline mb-3 mb-md-0">{{resume.acf.position}}</div>
         </div><!--//resume-title-->
         <div class="resume-contact col-12 col-md-6 col-lg-4 col-xl-3">
           <ul class="list-unstyled mb-0">
-            <li class="mb-2"><i class="fas fa-phone-square fa-fw fa-lg mr-2 "></i><a class="resume-link" href="tel:#">0123 4567 890</a></li>
-            <li class="mb-2"><i class="fas fa-envelope-square fa-fw fa-lg mr-2"></i><a class="resume-link" href="mailto:#">simon.doe@yourwebsite.com</a></li>
-            <li class="mb-2"><i class="fas fa-globe fa-fw fa-lg mr-2"></i><a class="resume-link" href="#">www.yourwebsite.com</a></li>
-            <li class="mb-0"><i class="fas fa-map-marker-alt fa-fw fa-lg mr-2"></i>New York</li>
+            <li class="mb-2"><i class="fas fa-phone-square fa-fw fa-lg mr-2 "></i><a class="resume-link" v-bind:href="'tel:${resume.acf.phone_number}'">{{resume.acf.phone_number}}</a></li>
+            <li class="mb-2"><i class="fas fa-envelope-square fa-fw fa-lg mr-2"></i><a class="resume-link" v-bind:href="'mailto:${resume.acf.email}'">{{ resume.acf.email }}</a></li>
+            <li class="mb-2"><i class="fas fa-globe fa-fw fa-lg mr-2"></i><a class="resume-link" v-bind:href="resume.acf.website.url"></a>{{  resume.acf.website.url }}</li>
+            <li class="mb-0"><i class="fas fa-map-marker-alt fa-fw fa-lg mr-2"></i>{{ resume.acf.location }}</li>
           </ul>
         </div><!--//resume-contact-->
       </div><!--//row-->
@@ -31,9 +31,9 @@
     <hr>
     <div class="resume-intro py-3">
       <div class="media flex-column flex-md-row align-items-center">
-        <img class="resume-profile-image mb-3 mb-md-0 mr-md-5 ml-md-0 rounded mx-auto" src="assets/images/resume-profile.png" alt="image">
+        <img class="resume-profile-image mb-3 mb-md-0 mr-md-5 ml-md-0 rounded mx-auto" v-bind:src="myInfo.acf.headshot2" alt="image">
         <div class="media-body text-left">
-          <p class="mb-0">Summarise your career here. <a class="theme-link" href="../../../resources/sketch-template/resume-sketch-sketch-resume-template-for-software-developers/index.html" target="_blank">You can make a PDF version of your resume using our free Sketch template here</a>. Donec quam felis, ultricies nec, pellentesque eu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.  Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. </p>
+          <p class="mb-0">{{ resume.acf.summary }}</p>
         </div><!--//media-body-->
       </div>
     </div><!--//resume-intro-->
@@ -115,7 +115,6 @@
             
           </section><!--//work-section-->
 
-          
           <section class="project-section py-3">
             <h3 class="text-uppercase resume-section-heading mb-4">Projects</h3>
             <div class="item mb-3">
@@ -250,11 +249,13 @@ export default {
     return {
       myInfo: {},
       resume: {},
+      experiences: [],
     };
   },
   created: function() {
     this.getMyInfo();
     this.getResume();
+    this.getExperiences();
   },
   methods: {
     getMyInfo: function() {
@@ -267,6 +268,12 @@ export default {
       axios.get("/wp/v2/resumes/" + this.$route.params.id).then(response => {
         console.log("resume ->", response);
         this.resume = response.data;
+      });
+    },
+    getExperiences: function() {
+      axios.get("/wp/v2/experiences/").then(response => {
+        console.log("experiences ->", response);
+        this.experiences = response.data;
       });
     },
   },
