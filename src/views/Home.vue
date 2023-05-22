@@ -146,9 +146,9 @@
               </div>
             </div>
             <div class="link-mask">
-              <a class="link-mask-link" href="project.html"></a>
+              <a class="link-mask-link" v-bind:href="`projects/${project.id}`"></a>
               <div class="link-mask-text">
-                <a class="btn btn-secondary" href="project.html">
+                <a class="btn btn-secondary" v-bind:href="`projects/${project.id}`">
                   <i class="fas fa-eye mr-2"></i>View Case Study
                 </a>
               </div>

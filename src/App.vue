@@ -38,10 +38,10 @@
             <a class="nav-link" href="/resumes/55"><i class="fas fa-file-alt fa-fw mr-2"></i>Resume</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="blog-home.html"><i class="fas fa-blog fa-fw mr-2"></i>Blog</a>
+            <a class="nav-link" href="/blog"><i class="fas fa-blog fa-fw mr-2"></i>Blog</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html"><i class="fas fa-envelope-open-text fa-fw mr-2"></i>Contact</a>
+            <a class="nav-link" href="/contact"><i class="fas fa-envelope-open-text fa-fw mr-2"></i>Contact</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

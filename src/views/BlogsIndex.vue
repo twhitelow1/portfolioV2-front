@@ -1,5 +1,5 @@
 <template>
-  <div class="blog">
+  <div class="project">
     <section class="cta-section theme-bg-light py-5">
 		    <div class="container text-center">
 			    <h2 class="heading">A Blog About Software Development And Life</h2>
@@ -106,6 +106,40 @@
 				
 		    </div>
 	    </section>
-	    
   </div>
 </template>
+
+<script>
+// @ is an alias to /src
+import axios from "axios";
+
+export default {
+  data: function() {
+    return {
+      myInfo: {},
+      projects: [],
+    };
+  },
+  created: function() {
+    this.getMyInfo();
+    this.getProjects();
+  },
+  methods: {
+    getMyInfo: function() {
+      axios.get("/wp/v2/my-info/89").then(response => {
+        console.log("my-info ->", response);
+        this.myInfo = response.data;
+      });
+    },
+    getProjects: function() {
+      axios.get("/wp/v2/projects").then(response => {
+        console.log("resume ->", response);
+        this.projects = response.data;
+      });
+    },
+  },
+  name: 'Home',
+  components: {
+  }
+};
+</script>

@@ -7,6 +7,7 @@ import ResumesShow from '../views/ResumesShow.vue';
 import Services from '../views/Services.vue';
 import BlogsIndex from '../views/BlogsIndex.vue';
 import BlogsShow from '../views/BlogsShow.vue';
+import Contact from '../views/Contact.vue';
 
 Vue.use(VueRouter);
 
@@ -45,14 +46,19 @@ const routes = [
     component: Services
   },
   {
-    path: '/blogs/:id',
+    path: '/blog/:id',
     name: 'blogs-show',
     component: BlogsShow
   },
   {
-    path: '/blogs',
+    path: '/blog',
     name: 'blogs-index',
     component: BlogsIndex
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: Contact
   }
 ];
 
