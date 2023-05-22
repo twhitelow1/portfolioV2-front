@@ -7,7 +7,7 @@
 			    <p>Welcome to my online portfolio.</p>
 			    
 			    </div>
-			    <a class="btn btn-primary" href="contact.html" target="_blank"><i class="fas fa-paper-plane mr-2"></i>Hire Me</a>
+			    <a class="btn btn-primary" href="/contact" target="_blank"><i class="fas fa-paper-plane mr-2"></i>Hire Me</a>
 			    
 			    
 		    </div><!--//container-->

@@ -23,9 +23,7 @@
 							    
 						    </ul>
 						    <div class="client-bio mb-4">{{ project.acf.short_description }}</div>
-						    <h4 class="subheading mb-3">Project Requirements</h4>
-						   {{ project.acf.requirements }}
-					    </div>					
+						    <h4 class="subheading mb-3" v-html="project.acf.requirements">Project Requirements</h4></div>					
 					</div><!--//media-body-->
 				</div><!--//project-meta-->
 				<div class="project-sections py-5">

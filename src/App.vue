@@ -31,44 +31,23 @@
           <li class="nav-item">
             <a class="nav-link" href="/projects"><i class="fas fa-laptop-code fa-fw mr-2"></i>Portfolio</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="services.html"><i class="fas fa-briefcase fa-fw mr-2"></i>Services &amp; Pricing</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="/resumes/55"><i class="fas fa-file-alt fa-fw mr-2"></i>Resume</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="/blog"><i class="fas fa-blog fa-fw mr-2"></i>Blog</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="/contact"><i class="fas fa-envelope-open-text fa-fw mr-2"></i>Contact</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-cogs fa-fw mr-2"></i>More Pages
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="project.html">Project Page</a>
-              <a class="dropdown-item" href="blog-home.html">Blog Home 1</a>
-              <a class="dropdown-item" href="blog-home-alt.html">Blog Home 2</a>
-              <a class="dropdown-item" href="blog-post.html">Blog Post</a>
-            </div>
           </li>
         </ul>
         
         <div class="my-2">
-          <a class="btn btn-primary" href="contact.html" target="_blank"><i class="fas fa-paper-plane mr-2"></i>Hire Me</a>
+          <a class="btn btn-primary" href="/contact" target="_blank"><i class="fas fa-paper-plane mr-2"></i>Hire Me</a>
         </div>
-        
-
-        <div class="dark-mode-toggle text-center w-100">
-          <hr class="mb-4">
-            <h4 class="toggle-name mb-3 "><i class="fas fa-adjust mr-1"></i>Dark Mode</h4>
-            
-            <input class="toggle" id="darkmode" type="checkbox">
-            <label class="toggle-btn mx-auto mb-0" for="darkmode"></label>
-            
-        </div><!--//dark-mode-toggle-->
         
       </div>
     </nav>

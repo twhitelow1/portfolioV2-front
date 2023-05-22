@@ -7,11 +7,11 @@
         <div class="media-body">
           <h2 class="name font-weight-bold mb-1">{{myInfo.acf.first_name + ' ' + myInfo.acf.last_name}}</h2>
           <div class="tagline mb-3">{{ myInfo.acf.position }}</div>
-          <div class="bio mb-4">{{ myInfo.acf.elevator_pitch }}. Want to know how I may help your project? Check out my project <a class="link-on-bg" href="projects.html">portfolio</a> and <a class="link-on-bg" href="resume.html">online resume</a>.
+          <div class="bio mb-4">{{ myInfo.acf.elevator_pitch }}. Want to know how I may help your project? Check out my project <a class="link-on-bg" href="/projects">portfolio</a> and <a class="link-on-bg" href="/resume/55">online resume</a>.
           </div><!--//bio-->
           <div class="mb-4">
             <a class="btn btn-primary mr-2 mb-3" href="/projects"><i class="fas fa-arrow-alt-circle-right mr-2"></i><span class="d-none d-md-inline">View</span> Portfolio</a>
-            <a class="btn btn-secondary mb-3" href="/resume"><i class="fas fa-file-alt mr-2"></i><span class="d-none d-md-inline">View</span> Resume</a>
+            <a class="btn btn-secondary mb-3" href="/resumes/55"><i class="fas fa-file-alt mr-2"></i><span class="d-none d-md-inline">View</span> Resume</a>
           </div>
         </div><!--//media-body-->
         <img class="profile-image mb-3 mb-lg-0 ml-lg-5 mr-md-0" v-bind:src="myInfo.acf.headshot2" alt="Todd Whitelow's Headshot
@@ -92,7 +92,7 @@
         </div><!--//item-->
         <div class="item col-6 col-lg-3">
           <div class="item-inner">
-            <div class="item-icon"><i class="fab fa-screen-users mr-2"></i></div>
+            <div class="item-icon"><i class="fa-solid fa-people-group mr-2"></i></div>
             <h3 class="item-title">Collaboration & Communication</h3>
             <div class="item-desc">I foster effective teamwork and communicate technical concepts to both technical and non-technical stakeholders, facilitating smooth collaboration and ensuring clarity in IT-related discussions</div>
           </div><!--//item-inner-->
@@ -106,22 +106,13 @@
         </div><!--//item-->
         <div class="item col-6 col-lg-3">
           <div class="item-inner">
-            <div class="item-icon"><i class="fa-solid fa-computer mr-2"></i></div>
+            <div class="item-icon"><i class="fa-solid fa-gears mr-2"></i></div>
             <h3 class="item-title">System Maintenance & Upgrades</h3>
             <div class="item-desc">Proactively managing system updates and upgrades, I ensure that IT systems remain up-to-date, secure, and compatible with evolving business needs.</div>
           </div><!--//item-inner-->
         </div><!--//item-->
-        <div class="item col-6 col-lg-3">
-          <div class="item-inner">
-            <div class="item-icon"><i class="fab fa-screen-users mr-2"></i></div>
-            <h3 class="item-title"></h3>
-            <div class="item-desc"></div>
-          </div><!--//item-inner-->
-        </div><!--//item-->
       </div><!--//row-->
-      <div class="text-center py-3"><a href="services.html" class="btn btn-primary"><i class="fas fa-arrow-alt-circle-right mr-2"></i>Services &amp; Pricing
-        
-      </a></div>
+      <!-- <div class="text-center py-3"><a href="services.html" class="btn btn-primary"><i class="fas fa-arrow-alt-circle-right mr-2"></i>Services &amp; Pricing</a></div> -->
       
     </div><!--//container-->
   </section>
@@ -156,63 +147,14 @@
           </div><!--//card-->
         </div><!--//col-->        
       </div><!--//row-->
-      <div class="text-center py-3"><a href="portfolio.html" class="btn btn-primary"><i class="fas fa-arrow-alt-circle-right mr-2"></i>View Portfolio</a></div>
+      <div class="text-center py-3"><a href="/projects" class="btn btn-primary"><i class="fas fa-arrow-alt-circle-right mr-2"></i>View Portfolio</a></div>
       
     </div><!--//container-->
   </section><!--//featured-section-->
   
   <div class="container"><hr></div>
   
-  <section class="latest-blog-section p-3 p-lg-5">
-    <div class="container">
-      <h2 class="section-title font-weight-bold mb-5">Latest Blog Posts</h2>
-      <div class="row">
-        <div class="col-md-4 mb-5">
-          <div class="card blog-post-card">
-            <img class="card-img-top" src="assets/images/blog/blog-post-thumb-card-1.jpg" alt="image">
-            <div class="card-body">
-              <h5 class="card-title"><a class="theme-link" href="blog-post.html">Top 3 JavaScript Frameworks</a></h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient...</p>
-              <p class="mb-0"><a class="more-link" href="blog-post.html">Read more &rarr;</a></p>
-              
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Published 2 days ago</small>
-            </div>
-          </div><!--//card-->
-        </div><!--//col-->
-        <div class="col-md-4 mb-5">
-          <div class="card blog-post-card">
-            <img class="card-img-top" src="assets/images/blog/blog-post-thumb-card-2.jpg" alt="image">
-            <div class="card-body">
-              <h5 class="card-title"><a class="theme-link" href="blog-post.html">About Remote Working</a></h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient...</p>
-              <p class="mb-0"><a class="more-link" href="blog-post.html">Read more &rarr;</a></p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Published a week ago</small>
-              
-            </div>
-          </div><!--//card-->
-        </div><!--//col-->
-        <div class="col-md-4 mb-5">
-          <div class="card blog-post-card">
-            <img class="card-img-top" src="assets/images/blog/blog-post-thumb-card-3.jpg" alt="image">
-            <div class="card-body">
-              <h5 class="card-title"><a class="theme-link" href="blog-post.html">A Guide to Becoming a Full-Stack Developer</a></h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient...</p>
-              <p class="mb-0"><a class="more-link" href="blog-post.html">Read more &rarr;</a></p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Published 3 weeks ago</small>
-            </div>
-          </div><!--//card-->
-        </div><!--//col-->
-      </div><!--//row-->
-      <div class="text-center py-3"><a href="blog-home.html" class="btn btn-primary"><i class="fas fa-arrow-alt-circle-right mr-2"></i>View Blog</a></div>
-    </div><!--//container-->
-    
-  </section><!--//latest-blog-section-->
+  
   </div>
 </template>
 
