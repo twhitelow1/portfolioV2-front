@@ -129,10 +129,10 @@
             <div class="row no-gutters">
               <div class="col-lg-12">
                 <div class="card-body">
-                  <img v-bind:src="project.acf.main_photo" class="card-img" alt="image">
-                  <h5 class="card-title"><a href="project.html" class="theme-link"> {{ project.acf.project_name }}</a></h5>
-                  <p class="card-text">{{ project.acf.short_description }}</p>
-                  <p class="card-text"><small class="text-muted">Client: {{ project.acf.client_name }}</small></p>
+                  <img v-bind:src="project.attributes.mainPhoto" class="card-img" alt="image">
+                  <h5 class="card-title"><a v-bind:href="`/projects/${project.attributes.id}`" class="theme-link"> {{ project.attributes.projectName }}</a></h5>
+                  <p class="card-text">{{ project.attributes.shortDescription }}</p>
+                  <p class="card-text"><small class="text-muted">Client: {{ project.attributes.clientName }}</small></p>
                 </div>
               </div>
             </div>
@@ -175,13 +175,13 @@ export default {
   },
   methods: {
     getMyInfo: function() {
-      axios.get("/wp/v2/my-info/89").then(response => {
+      axios.get("/my-info/1").then(response => {
         console.log("my-info ->", response);
         this.myInfo = response.data;
       });
     },
     getProjects: function() {
-      axios.get("/wp/v2/projects").then(response => {
+      axios.get("/projects").then(response => {
         console.log("projects ->", response);
         this.projects = response.data;
       });
