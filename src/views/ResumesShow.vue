@@ -3,7 +3,7 @@
     <section class="cta-section theme-bg-light py-5">
   <div class="container text-center single-col-max-width">
     <h2 class="heading mb-3">Online Resume</h2>
-    <a class="btn btn-primary" href="../../../resources/sketch-template/resume-sketch-sketch-resume-template-for-software-developers/index.html" target="_blank"><i class="fas fa-file-pdf mr-2"></i>Download PDF Version</a>
+    <!-- <a class="btn btn-primary" href="../../../resources/sketch-template/resume-sketch-sketch-resume-template-for-software-developers/index.html" target="_blank"><i class="fas fa-file-pdf mr-2"></i>Download PDF Version</a> -->
     
     
   </div><!--//container-->
@@ -19,9 +19,9 @@
         </div><!--//resume-title-->
         <div class="resume-contact col-12 col-md-6 col-lg-4 col-xl-3">
           <ul class="list-unstyled mb-0">
-            <li class="mb-2"><i class="fas fa-phone-square fa-fw fa-lg mr-2 "></i><a class="resume-link" v-bind:href="'tel:${resume.data.attributes.phone_number}'">{{resume.data.attributes.phone}}</a></li>
-            <li class="mb-2"><i class="fas fa-envelope-square fa-fw fa-lg mr-2"></i><a class="resume-link" v-bind:href="'mailto:${resume.data.attributes.email}'">{{ resume.data.attributes.email }}</a></li>
-            <li class="mb-2"><i class="fas fa-globe fa-fw fa-lg mr-2"></i><a class="resume-link" v-bind:href="resume.data.attributes.website"></a>{{  resume.data.attributes.website.url }}</li>
+            <!-- <li class="mb-2"><i class="fas fa-phone-square fa-fw fa-lg mr-2 "></i><a class="resume-link" v-bind:href="'tel:${resume.data.attributes.phone_number}'">{{resume.data.attributes.phone}}</a></li> -->
+            <li class="mb-2"><i class="fas fa-envelope-square fa-fw fa-lg mr-2"></i><a class="resume-link" v-bind:href="`mailto:${resume.data.attributes.email}`">{{ resume.data.attributes.email }}</a></li>
+            <li class="mb-2"><i class="fas fa-globe fa-fw fa-lg mr-2"></i><a class="resume-link" v-bind:href="`https://${myInfo.data.attributes.website}`"></a>{{  myInfo.data.attributes.website }}</li>
             <li class="mb-0"><i class="fas fa-map-marker-alt fa-fw fa-lg mr-2"></i>{{ resume.data.attributes.location }}</li>
           </ul>
         </div><!--//resume-contact-->
@@ -56,38 +56,14 @@
 
           <section class="project-section py-3">
             <h3 class="text-uppercase resume-section-heading mb-4">Projects</h3>
-            <div class="item mb-3">
+            <div class="item mb-3" v-for="project in projects.data">
               <div class="item-heading row align-items-center mb-2">
-                <h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">Project Lorem Ipsum</h4>
-                <div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right">Open Source</div>
+                <h4 class="item-title col-12 col-md-6 col-lg-6 mb-0 mb-md-0">{{ project.attributes.name }}</h4>
+                <div class="item-meta col-12 col-md-6 col-lg-6 text-muted text-left text-md-right">Open Source</div>
                 
               </div>
               <div class="item-content">
-                <p>You can use this section for your side projects. You can <a href="#" class="theme-link">provide a project link here</a> as well. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                
-                
-              </div>
-            </div><!--//item-->
-            <div class="item">
-              <div class="item-heading row align-items-center mb-2">
-                <h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">Project Sed Fringilla</h4>
-                <div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right">Open Source</div>
-                
-              </div>
-              <div class="item-content">
-                <p>You can use this section for your side projects. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
-                
-              </div>
-            </div><!--//item-->
-            <div class="item">
-              <div class="item-heading row align-items-center mb-2">
-                <h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">Project Praesent </h4>
-                <div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right">Open Source</div>
-                
-              </div>
-              <div class="item-content">
-                <p>You can use this section for your side projects. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
-                
+                <p> {{ project.attributes.shortDescription }}<br/><a v-bind:href="`/projects/${project.id}`" class="theme-link">View Project</a>.</p>
               </div>
             </div><!--//item-->
           </section><!--//project-section-->	
@@ -147,9 +123,8 @@
         <hr>
         <div class="resume-footer text-center">
           <ul class="resume-social-list list-inline mx-auto mb-0 d-inline-block text-muted">
-            <li class="list-inline-item mb-lg-0 mr-3"><a class="resume-link" href="#"><i class="fab fa-github-square fa-2x mr-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">github.com/username</span></a></li>
-            <li class="list-inline-item mb-lg-0 mr-3"><a class="resume-link" href="#"><i class="fab fa-linkedin fa-2x mr-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">linkedin.com/in/username</span></a></li>
-            <li class="list-inline-item mb-lg-0 mr-lg-3"><a class="resume-link" href="#"><i class="fab fa-twitter-square fa-2x mr-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">@twittername</span></a></li>
+            <li class="list-inline-item mb-lg-0 mr-3"><a class="resume-link" v-bind:href="myInfo.data.attributes.github"><i class="fab fa-github-square fa-2x mr-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">github.com/twhitelow1</span></a></li>
+            <li class="list-inline-item mb-lg-0 mr-3"><a class="resume-link" v-bind:href="myInfo.data.attributes.linkedin"><i class="fab fa-linkedin fa-2x mr-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">linkedin.com/in/todd-whitelow</span></a></li>
           </ul>
         </div><!--//resume-footer-->
       </article>
@@ -171,6 +146,7 @@ export default {
       interests: [],
       certifications: [],
       educations: [],
+      projects: [],
     };
   },
   created: function() {
@@ -180,6 +156,7 @@ export default {
     this.getInterests();
     this.getCertifications();
     this.getEducations();
+    this.getProjects();
   },
   methods: {
     getMyInfo: function() {
@@ -216,6 +193,12 @@ export default {
       axios.get("/educations/").then(response => {
         console.log("educations ->", response);
         this.educations = response.data;
+      });
+    },
+    getProjects: function() {
+      axios.get("/projects/").then(response => {
+        console.log("projects ->", response);
+        this.projects = response.data;
       });
     },
     formatDate: function(dateString) {

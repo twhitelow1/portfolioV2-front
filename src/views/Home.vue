@@ -7,11 +7,11 @@
         <div class="media-body">
           <h2 class="name font-weight-bold mb-1">{{myInfo.data.attributes.FirstName + ' ' + myInfo.data.attributes.LastName}}</h2>
           <div class="tagline mb-3">{{ myInfo.data.attributes.position }}</div>
-          <div class="bio mb-4">{{ myInfo.data.attributes.ElevatorPitch }}. Want to know how I may help your project? Check out my project <a class="link-on-bg" href="/projects">portfolio</a> and <a class="link-on-bg" href="/resume/55">online resume</a>.
+          <div class="bio mb-4">{{ myInfo.data.attributes.ElevatorPitch }}. Want to know how I may help your project? Check out my project <a class="link-on-bg" href="/projects">portfolio</a> and <a class="link-on-bg" href="/resumes/1">online resume</a>.
           </div><!--//bio-->
           <div class="mb-4">
             <a class="btn btn-primary mr-2 mb-3" href="/projects"><i class="fas fa-arrow-alt-circle-right mr-2"></i><span class="d-none d-md-inline">View</span> Portfolio</a>
-            <a class="btn btn-secondary mb-3" href="/resumes/55"><i class="fas fa-file-alt mr-2"></i><span class="d-none d-md-inline">View</span> Resume</a>
+            <a class="btn btn-secondary mb-3" href="/resumes/1"><i class="fas fa-file-alt mr-2"></i><span class="d-none d-md-inline">View</span> Resume</a>
           </div>
         </div><!--//media-body-->
         <img class="profile-image mb-3 mb-lg-0 ml-lg-5 mr-md-0" v-bind:src="`http://localhost:1337${myInfo.data.attributes.headshot2.data.attributes.url}`" alt="Todd Whitelow's Headshot
@@ -23,7 +23,7 @@
   <section class="overview-section p-3 p-lg-5">
     <div class="container">
       <h2 class="section-title font-weight-bold mb-3">What I do</h2>
-      <div class="section-intro mb-5">I have more than 10 years' experience building software for clients all over the world. Below is a quick overview of my main technical skill sets and technologies I use. Want to find out more about my experience? Check out my <a href="/resume">online resume</a> and <a href="/portfolio">project portfolio</a>.</div>
+      <div class="section-intro mb-5">I have more than 10 years' experience building software for clients all over the world. Below is a quick overview of my main technical skill sets and technologies I use. Want to find out more about my experience? Check out my <a href="/resumes/1">online resume</a> and <a href="/portfolio">project portfolio</a>.</div>
       <div class="row">
         <div class="item col-6 col-lg-3">
           <div class="item-inner">
