@@ -6,6 +6,7 @@ import axios from "axios";
 axios.defaults.baseURL = process.env.NODE_ENV === "development" ? "http://localhost:1337/api/" : "/";
 
 Vue.config.productionTip = false;
+Vue.prototype.$apiHostname = process.env.NODE_ENV === 'development' ? 'http://localhost:1337' : '/';
 
 new Vue({
   router,

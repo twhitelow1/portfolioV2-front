@@ -14,7 +14,7 @@
             <a class="btn btn-secondary mb-3" href="/resumes/1"><i class="fas fa-file-alt mr-2"></i><span class="d-none d-md-inline">View</span> Resume</a>
           </div>
         </div><!--//media-body-->
-        <img class="profile-image mb-3 mb-lg-0 ml-lg-5 mr-md-0" v-bind:src="`http://localhost:1337${myInfo.data.attributes.headshot2.data.attributes.url}`" alt="Todd Whitelow's Headshot
+        <img class="profile-image mb-3 mb-lg-0 ml-lg-5 mr-md-0" v-bind:src="$apiHostname + myInfo.data.attributes.headshot2.data.attributes.url" alt="Todd Whitelow's Headshot
         ">
       </div>
     </div>
@@ -129,7 +129,7 @@
             <div class="row no-gutters">
               <div class="col-lg-12">
                 <div class="card-body">
-                  <img v-bind:src="`http://localhost:1337${project.attributes.mainPhoto.data.attributes.url}`" class="card-img" alt="image">
+                  <img v-bind:src="$apiHostname + project.attributes.mainPhoto.data.attributes.url" class="card-img" alt="image">
                   <h5 class="card-title"><a v-bind:href="`/projects/${project.id}`" class="theme-link"> {{ project.attributes.name }}</a></h5>
                   <p class="card-text">{{ project.attributes.summary }}</p>
                   <p class="card-text"><small class="text-muted">Client: {{ project.attributes.clientName }}</small></p>
