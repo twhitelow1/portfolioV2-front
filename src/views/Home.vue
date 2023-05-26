@@ -5,16 +5,16 @@
       <div class="profile-teaser media flex-column flex-lg-row">
         
         <div class="media-body">
-          <h2 class="name font-weight-bold mb-1">{{myInfo.attributes.firstName + ' ' + myInfo.attributes.lastName}}</h2>
-          <div class="tagline mb-3">{{ myInfo.attributes.position }}</div>
-          <div class="bio mb-4">{{ myInfo.attributes.elevatorPitch }}. Want to know how I may help your project? Check out my project <a class="link-on-bg" href="/projects">portfolio</a> and <a class="link-on-bg" href="/resume/55">online resume</a>.
+          <h2 class="name font-weight-bold mb-1">{{myInfo.data.attributes.FirstName + ' ' + myInfo.data.attributes.LastName}}</h2>
+          <div class="tagline mb-3">{{ myInfo.data.attributes.position }}</div>
+          <div class="bio mb-4">{{ myInfo.data.attributes.ElevatorPitch }}. Want to know how I may help your project? Check out my project <a class="link-on-bg" href="/projects">portfolio</a> and <a class="link-on-bg" href="/resume/55">online resume</a>.
           </div><!--//bio-->
           <div class="mb-4">
             <a class="btn btn-primary mr-2 mb-3" href="/projects"><i class="fas fa-arrow-alt-circle-right mr-2"></i><span class="d-none d-md-inline">View</span> Portfolio</a>
             <a class="btn btn-secondary mb-3" href="/resumes/55"><i class="fas fa-file-alt mr-2"></i><span class="d-none d-md-inline">View</span> Resume</a>
           </div>
         </div><!--//media-body-->
-        <img class="profile-image mb-3 mb-lg-0 ml-lg-5 mr-md-0" v-bind:src="myInfo.attributes.headshot2" alt="Todd Whitelow's Headshot
+        <img class="profile-image mb-3 mb-lg-0 ml-lg-5 mr-md-0" v-bind:src="`http://localhost:1337${myInfo.data.attributes.headshot2.data.attributes.url}`" alt="Todd Whitelow's Headshot
         ">
       </div>
     </div>
@@ -124,14 +124,14 @@
       <h2 class="section-title font-weight-bold mb-5">Featured Projects</h2>
       <div class="row">
         
-        <div v-for="project in projects" class="col-md-6 mb-5">
+        <div v-for="project in projects.data" class="col-md-6 mb-5">
           <div class="card project-card">
             <div class="row no-gutters">
               <div class="col-lg-12">
                 <div class="card-body">
-                  <img v-bind:src="project.attributes.mainPhoto" class="card-img" alt="image">
-                  <h5 class="card-title"><a v-bind:href="`/projects/${project.attributes.id}`" class="theme-link"> {{ project.attributes.projectName }}</a></h5>
-                  <p class="card-text">{{ project.attributes.shortDescription }}</p>
+                  <img v-bind:src="`http://localhost:1337${project.attributes.mainPhoto.data.attributes.url}`" class="card-img" alt="image">
+                  <h5 class="card-title"><a v-bind:href="`/projects/${project.id}`" class="theme-link"> {{ project.attributes.name }}</a></h5>
+                  <p class="card-text">{{ project.attributes.summary }}</p>
                   <p class="card-text"><small class="text-muted">Client: {{ project.attributes.clientName }}</small></p>
                 </div>
               </div>
@@ -175,15 +175,16 @@ export default {
   },
   methods: {
     getMyInfo: function() {
-      axios.get("/professional").then(response => {
+      axios.get("/professional?populate=*").then(response => {
         console.log("my-info ->", response);
         this.myInfo = response.data;
       });
     },
     getProjects: function() {
-      axios.get("/projects").then(response => {
+      axios.get("/projects?populate=*").then(response => {
         console.log("projects ->", response);
         this.projects = response.data;
+        console.log("projects updated ->", this.projects.data);
       });
     },
   },
