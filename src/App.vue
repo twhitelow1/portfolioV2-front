@@ -2,7 +2,7 @@
   <div id="app">
     <header class="header text-center">	    
     <div class="force-overflow">
-    <h1 class="blog-name pt-lg-4 mb-0"><a href="index-2.html">{{ myInfo.acf.first_name + ' '+ myInfo.acf.last_name }}</a></h1>
+    <h1 class="blog-name pt-lg-4 mb-0"><a href="index-2.html">{{ myInfo.attributes.firstName + ' '+ myInfo.attributes.lastName }}</a></h1>
     
     <nav class="navbar navbar-expand-lg navbar-dark" >
       
@@ -12,12 +12,12 @@
       
       <div id="navigation" class="collapse navbar-collapse flex-column" >
         <div class="profile-section pt-3 pt-lg-0">
-          <img class="profile-image mb-3 rounded-circle mx-auto" v-bind:src="myInfo.acf.headshot1" alt="image" >			
+          <img class="profile-image mb-3 rounded-circle mx-auto" v-bind:src="myInfo.attributes.headshot1" alt="image" >			
           
-          <div class="bio mb-3">{{myInfo.acf.tagline}}</div><!--//bio-->
+          <div class="bio mb-3">{{myInfo.attributes.tagline}}</div><!--//bio-->
           <ul class="social-list list-inline py-2 mx-auto">
-            <li class="list-inline-item"><a v-bind:href="myInfo.acf.linkedin" alt="Todd Whitelow Jr's LinkedIn"><i class="fab fa-linkedin-in fa-fw" ></i></a></li>
-            <li class="list-inline-item"><a v-bind:href="myInfo.acf.github"><i class="fab fa-github-alt fa-fw" alt="Todd Whitelow Jr's Github"></i></a></li>
+            <li class="list-inline-item"><a v-bind:href="myInfo.attributes.linkedin" alt="Todd Whitelow Jr's LinkedIn"><i class="fab fa-linkedin-in fa-fw" ></i></a></li>
+            <li class="list-inline-item"><a v-bind:href="myInfo.attributes.github"><i class="fab fa-github-alt fa-fw" alt="Todd Whitelow Jr's Github"></i></a></li>
             <!-- <li class="list-inline-item"><a href="#"><i class="fab fa-stack-overflow fa-fw"></i></a></li> -->
             <li class="list-inline-item"><a href="#"><i class="fab fa-codepen fa-fw"></i></a></li>
           </ul><!--//social-list-->
@@ -107,13 +107,13 @@ export default {
   },
   methods: {
     getMyInfo: function() {
-      axios.get("/wp/v2/my-info/89").then(response => {
+      axios.get("/professional").then(response => {
         console.log("my-info ->", response);
         this.myInfo = response.data;
       });
     },
     getProjects: function() {
-      axios.get("/wp/v2/projects").then(response => {
+      axios.get("/projects").then(response => {
         console.log("projects ->", response);
         this.projects = response.data;
       });

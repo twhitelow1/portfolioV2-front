@@ -5,16 +5,16 @@
       <div class="profile-teaser media flex-column flex-lg-row">
         
         <div class="media-body">
-          <h2 class="name font-weight-bold mb-1">{{myInfo.acf.first_name + ' ' + myInfo.acf.last_name}}</h2>
-          <div class="tagline mb-3">{{ myInfo.acf.position }}</div>
-          <div class="bio mb-4">{{ myInfo.acf.elevator_pitch }}. Want to know how I may help your project? Check out my project <a class="link-on-bg" href="/projects">portfolio</a> and <a class="link-on-bg" href="/resume/55">online resume</a>.
+          <h2 class="name font-weight-bold mb-1">{{myInfo.attributes.firstName + ' ' + myInfo.attributes.lastName}}</h2>
+          <div class="tagline mb-3">{{ myInfo.attributes.position }}</div>
+          <div class="bio mb-4">{{ myInfo.attributes.elevatorPitch }}. Want to know how I may help your project? Check out my project <a class="link-on-bg" href="/projects">portfolio</a> and <a class="link-on-bg" href="/resume/55">online resume</a>.
           </div><!--//bio-->
           <div class="mb-4">
             <a class="btn btn-primary mr-2 mb-3" href="/projects"><i class="fas fa-arrow-alt-circle-right mr-2"></i><span class="d-none d-md-inline">View</span> Portfolio</a>
             <a class="btn btn-secondary mb-3" href="/resumes/55"><i class="fas fa-file-alt mr-2"></i><span class="d-none d-md-inline">View</span> Resume</a>
           </div>
         </div><!--//media-body-->
-        <img class="profile-image mb-3 mb-lg-0 ml-lg-5 mr-md-0" v-bind:src="myInfo.acf.headshot2" alt="Todd Whitelow's Headshot
+        <img class="profile-image mb-3 mb-lg-0 ml-lg-5 mr-md-0" v-bind:src="myInfo.attributes.headshot2" alt="Todd Whitelow's Headshot
         ">
       </div>
     </div>
@@ -23,7 +23,7 @@
   <section class="overview-section p-3 p-lg-5">
     <div class="container">
       <h2 class="section-title font-weight-bold mb-3">What I do</h2>
-      <div class="section-intro mb-5">I have more than 10 years' experience building software for clients all over the world. Below is a quick overview of my main technical skill sets and technologies I use. Want to find out more about my experience? Check out my <a href="resume.html">online resume</a> and <a href="portfolio.html">project portfolio</a>.</div>
+      <div class="section-intro mb-5">I have more than 10 years' experience building software for clients all over the world. Below is a quick overview of my main technical skill sets and technologies I use. Want to find out more about my experience? Check out my <a href="/resume">online resume</a> and <a href="/portfolio">project portfolio</a>.</div>
       <div class="row">
         <div class="item col-6 col-lg-3">
           <div class="item-inner">
@@ -175,7 +175,7 @@ export default {
   },
   methods: {
     getMyInfo: function() {
-      axios.get("/my-info/1").then(response => {
+      axios.get("/professional").then(response => {
         console.log("my-info ->", response);
         this.myInfo = response.data;
       });
