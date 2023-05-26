@@ -120,47 +120,26 @@
               <section class="education-section py-3">
                 <h3 class="text-uppercase resume-section-heading mb-4">Education</h3>
                 <ul class="list-unstyled resume-education-list">
-                  <li class="mb-3">
-                    <div class="resume-degree font-weight-bold">MSc in Computer Science</div>
-                    <div class="resume-degree-org text-muted">University College London</div>
-                    <div class="resume-degree-time text-muted">2010 - 2011</div>
-                  </li>
-                  <li>
-                    <div class="resume-degree font-weight-bold">BSc Maths and Physics</div>
-                    <div class="resume-degree-org text-muted">Imperial College London</div>
-                    <div class="resume-degree-time text-muted">2007 - 2010</div>
+                  <li v-for="education in educations.data" class="mb-3">
+                    <div class="resume-degree-org font-weight-bold">{{ education.attributes.School }}</div>
+                    <div class="resume-degree text-muted ">{{ education.attributes.Degree }}<p v-if="!education.attributes.finished">In Progress</p></div>
                   </li>
                 </ul>
               </section><!--//education-section-->
-              <section class="education-section py-3">
-                <h3 class="text-uppercase resume-section-heading mb-4">Awards</h3>
-                <ul class="list-unstyled resume-awards-list">
-                  <li class="mb-3">
-                    <div class="font-weight-bold">Award Lorem Ipsum</div>
-                    <div class="text-muted">Microsoft lorem ipsum (2019)</div>
-                  </li>
-                  <li>
-                    <div class="font-weight-bold">Award Donec Sodales</div>
-                    <div class="text-muted">Oracle Aenean (2017)</div>
-                  </li>
-                </ul>
-              </section><!--//education-section-->
+              
               <section class="skills-section py-3">
-                <h3 class="text-uppercase resume-section-heading mb-4">Languages</h3>
+                <h3 class="text-uppercase resume-section-heading mb-4">Certifications</h3>
                 <ul class="list-unstyled resume-lang-list">
-                  <li class="mb-2">English <span class="text-muted">(Native)</span></li>
-                  <li>Spanish <span class="text-muted">(Professional)</span></li>
+                  <li v-for="certification in certifications.data" class="mb-2">{{certification.attributes.name}}</li>
                 </ul>
               </section><!--//certificates-section-->
               <section class="skills-section py-3">
                 <h3 class="text-uppercase resume-section-heading mb-4">Interests</h3>
                 <ul class="list-unstyled resume-interests-list mb-0">
-                  <li class="mb-2">Climbing</li>
-                  <li class="mb-2">Snowboarding</li>
-                  <li class="mb-2">Photography</li>
-                  <li>Travelling</li>
+                  <li v-for="interest in interests.data" class="mb-2">{{interest.attributes.name}}</li>
                 </ul>
-              </section><!--//certificates-section-->
+              </section>
+              <!--//certificates-section-->
               
             </aside><!--//resume-aside-->
           </div><!--//row-->
@@ -189,12 +168,18 @@ export default {
       myInfo: {},
       resume: {},
       experiences: [],
+      interests: [],
+      certifications: [],
+      educations: [],
     };
   },
   created: function() {
     this.getMyInfo();
     this.getResume();
     this.getExperiences();
+    this.getInterests();
+    this.getCertifications();
+    this.getEducations();
   },
   methods: {
     getMyInfo: function() {
@@ -213,6 +198,24 @@ export default {
       axios.get("/experiences/").then(response => {
         console.log("experiences ->", response);
         this.experiences = response.data;
+      });
+    },
+    getInterests: function() {
+      axios.get("/interests/").then(response => {
+        console.log("interests ->", response);
+        this.interests = response.data;
+      });
+    },
+    getCertifications: function() {
+      axios.get("/certifications/").then(response => {
+        console.log("certifications ->", response);
+        this.certifications = response.data;
+      });
+    },
+    getEducations: function() {
+      axios.get("/educations/").then(response => {
+        console.log("educations ->", response);
+        this.educations = response.data;
       });
     },
     formatDate: function(dateString) {
