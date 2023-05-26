@@ -14,29 +14,32 @@
 	    </section>
 	    <section class="projects-list px-3 py-5 p-md-5">
 		    <div class="container">
-			    <div class="text-center">
-				    <ul id="filters" class="filters mb-5 mx-auto pl-0">
-		                <li class="type active mb-3 mb-lg-0" data-filter="*">All</li>
-		                <li class="type  mb-3 mb-lg-0" data-filter=".webapp">We App</li>
-		                <li class="type  mb-3 mb-lg-0" data-filter=".mobileapp">Mobile App</li>
-		                <li class="type  mb-3 mb-lg-0" data-filter=".frontend">Frontend</li>
-		                <li class="type  mb-3 mb-lg-0" data-filter=".backend">Backend</li>
-		            </ul><!--//filters-->
-			    </div>
+			    <!-- <div class="text-center"> -->
+				    <!-- <ul id="filters" class="filters mb-5 mx-auto pl-0"> -->
+		                <!-- <li class="type active mb-3 mb-lg-0" data-filter="*">All</li> -->
+		                <!-- <li class="type  mb-3 mb-lg-0" data-filter=".webapp">We App</li> -->
+		                <!-- <li class="type  mb-3 mb-lg-0" data-filter=".mobileapp">Mobile App</li> -->
+		                <!-- <li class="type  mb-3 mb-lg-0" data-filter=".frontend">Frontend</li> -->
+		                <!-- <li class="type  mb-3 mb-lg-0" data-filter=".backend">Backend</li> -->
+		            <!-- </ul> -->
+								<!--//filters-->
+			    <!-- </div> -->
 	            
 			    <div class="project-cards row isotope">
 					
-          <div v-for="project in projects" class="isotope-item col-md-6 mb-5 mobileapp frontend">
+          <div v-for="project in projects.data" class="isotope-item col-md-6 mb-5 mobileapp frontend">
 						<div class="card project-card">
 							<div class="row no-gutters">
-								<div class="col-lg-4 card-img-holder">
-									<img v-bind:src="project.acf.main_photo" class="card-img" alt="image">
+								<div class="col-lg-12 card-img-holder">
+									<img v-bind:src="`http://localhost:1337${project.attributes.mainPhoto.data.attributes.url}`" class="card-img" alt="image">
 								</div>
-								<div class="col-lg-8">
+							</div>
+							<div class="row no-gutters">
+								<div class="col-lg-12">
 									<div class="card-body">
-										<h5 class="card-title"><a v-bind:href="`/projects/${project.id}`" class="theme-link">{{ project.acf.project_name }}</a></h5>
-										<p class="card-text">{{ project.acf.short_description }}</p>
-										<p class="card-text"><small class="text-muted">Client: {{project.acf.client_name}}</small></p>
+										<h5 class="card-title"><a v-bind:href="`/projects/${project.id}`" class="theme-link">{{ project.attributes.projectName }}</a></h5>
+										<p class="card-text">{{ project.attributes.shortDescription }}</p>
+										<p class="card-text"><small class="text-muted">Client: {{project.attributes.clientName}}</small></p>
 									</div>
 								</div>
 							</div>
@@ -77,13 +80,13 @@ export default {
   },
   methods: {
     getMyInfo: function() {
-      axios.get("/wp/v2/my-info/89").then(response => {
+      axios.get("/professional?populate=*").then(response => {
         console.log("my-info ->", response);
         this.myInfo = response.data;
       });
     },
     getProjects: function() {
-      axios.get("/wp/v2/projects").then(response => {
+      axios.get("/projects?populate=*").then(response => {
         console.log("resume ->", response);
         this.projects = response.data;
       });
