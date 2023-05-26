@@ -23,7 +23,7 @@
   <section class="overview-section p-3 p-lg-5">
     <div class="container">
       <h2 class="section-title font-weight-bold mb-3">What I do</h2>
-      <div class="section-intro mb-5">I have more than 10 years' experience building software for clients all over the world. Below is a quick overview of my main technical skill sets and technologies I use. Want to find out more about my experience? Check out my <a href="/resumes/1">online resume</a> and <a href="/portfolio">project portfolio</a>.</div>
+      <div class="section-intro mb-5">I have more than 10 years' experience building software for clients all over the world. Below is a quick overview of my main technical skill sets and technologies I use. Want to find out more about my experience? Check out my <a href="/resumes/1">online resume</a> and <a href="/projects">project portfolio</a>.</div>
       <div class="row">
         <div class="item col-6 col-lg-3">
           <div class="item-inner">
