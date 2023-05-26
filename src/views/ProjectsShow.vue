@@ -2,9 +2,9 @@
   <div class="project">
     <section class="cta-section theme-bg-light py-5">
 		    <div class="container single-col-max-width">
-			    <h2 class="heading text-center">Case Study: {{ project.acf.project_name }}</h2>
+			    <h2 class="heading text-center">Case Study: {{ project.data.attributes.name }}</h2>
 			    <div class="project-intro text-center">
-					<p class="mb-0 lead">{{ project.acf.short_description }}</p>
+					<p class="mb-0 lead">{{ project.data.attributes.shortDescription }}</p>
 				</div>
 			    
 		    </div><!--//container-->
@@ -12,35 +12,36 @@
 	    <section class="project px-3 py-5 p-md-5">
 		    <div class="container">
 			    <div class="project-meta media flex-column flex-md-row p-4 theme-bg-light">
-				    <img class="project-thumb mb-3 mb-md-0 mr-md-5 rounded d-none d-md-inline-block" v-bind:src="project.acf.main_photo" alt="">
+				    <img class="project-thumb mb-3 mb-md-0 mr-md-5 rounded d-none d-md-inline-block" v-bind:src="`http://localhost:1337${project.data.attributes.mainPhoto.data.attributes.url}`" alt="">
 					<div class="media-body">
 					    <div class="client-info">
-						    <h3 class="client-name font-weight-bold mb-4">Client Name: {{ project.acf.client_name }}</h3>
+						    <h3 class="client-name font-weight-bold mb-4">Client Name: {{ project.data.attributes.clientName }}</h3>
 						    <ul class="client-meta list-unstyled">
 							    
 							    
-							    <li class="mb-2"><strong><i class="fas fa-link fa-fw mr-2"></i>Website:{{ project.acf.live_demo }}</strong> <a class="theme-link"></a></li>
+							    <li class="mb-2"><strong><i class="fas fa-link fa-fw mr-2"></i>Website:{{ project.data.attributes.liveDemo }}</strong> <a class="theme-link"></a></li>
 							    
 						    </ul>
-						    <div class="client-bio mb-4">{{ project.acf.short_description }}</div>
-						    <h4 class="subheading mb-3" v-html="project.acf.requirements">Project Requirements</h4></div>					
+						    <div class="client-bio mb-4">{{ project.data.attributes.shortDescription }}</div>
+						    <h4 class="subheading mb-3" >Project Requirements</h4></div>
+								<div v-html="project.data.attributes.requirements"></div>					
 					</div><!--//media-body-->
 				</div><!--//project-meta-->
 				<div class="project-sections py-5">
-					<div v-if="project.acf.overview" class="project-section mb-5">
+					<div v-if="project.data.attributes.overview" class="project-section mb-5">
 					    <h3 class="project-section-title mb-3">Project Overview</h3>
-					    <p> {{ project.acf.overview }} </p>
+					    <p> {{ project.data.attributes.overview }} </p>
 					</div><!--//project-section-->
 					
-					<div v-if="project.acf.challenge" class="project-section mb-5">
+					<div v-if="project.data.attributes.challenge" class="project-section mb-5">
 					     <h3 class="project-section-title">The Challenge</h3>
-					    <p>{{ project.acf.challenge }}</p>
+					    <p>{{ project.data.attributes.challenge }}</p>
 					     
 					</div><!--//project-section-->
 					
-					<div v-if="project.acf.approach_solutions" class="project-section mb-5">
+					<div v-if="project.data.attributes.approach_solutions" class="project-section mb-5">
 					     <h3 class="project-section-title">The Approach &amp; Solution</h3>
-					    <p>{{ project.acf.approach_solutions }}</p>
+					    <p>{{ project.data.attributes.approach_solutions }}</p>
 					    <div class="row mt-5">
 						    <div class="col-12 col-lg-6 mb-5">
 							    <img class="img-fluid rounded" src="assets/images/project/project-figure-1.jpg" alt="image">
@@ -80,17 +81,17 @@ export default {
   },
   created: function() {
     this.getMyInfo();
-    this.getProjects();
+    this.getProject();
   },
   methods: {
     getMyInfo: function() {
-      axios.get("/wp/v2/my-info/89").then(response => {
+      axios.get("/professional?populate=*").then(response => {
         console.log("my-info ->", response);
         this.myInfo = response.data;
       });
     },
-    getProjects: function() {
-      axios.get("/wp/v2/projects/" + this.$route.params.id).then(response => {
+    getProject: function() {
+      axios.get("/projects/" + this.$route.params.id + "?populate=*").then(response => {
         console.log("project ->", response);
         this.project = response.data;
       });

@@ -98,12 +98,10 @@ export default {
   data: function() {
     return {
       myInfo: {},
-      projects: {},
     };
   },
   created: function() {
     this.getMyInfo();
-    this.getProjects();
   },
   methods: {
     getMyInfo: function() {
@@ -111,12 +109,6 @@ export default {
         console.log("my-info ->", response);
         this.myInfo = response.data;
         console.log( "Console professional->", this.myInfo);
-      });
-    },
-    getProjects: function() {
-      axios.get("/projects?populate=*").then(response => {
-        console.log("projects ->", response);
-        this.projects = response.data;
       });
     },
   },
