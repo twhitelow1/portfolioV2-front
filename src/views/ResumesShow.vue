@@ -14,15 +14,15 @@
     <div class="resume-header">
       <div class="row align-items-center">
         <div class="resume-title col-12 col-md-6 col-lg-8 col-xl-9">
-          <h2 class="resume-name mb-0 text-uppercase">{{myInfo.acf.first_name + ' ' + myInfo.acf.last_name}}</h2>
-          <div class="resume-tagline mb-3 mb-md-0">{{resume.acf.position}}</div>
+          <h2 class="resume-name mb-0 text-uppercase">{{resume.data.attributes.candidateName}}</h2>
+          <div class="resume-tagline mb-3 mb-md-0">{{resume.data.attributes.position}}</div>
         </div><!--//resume-title-->
         <div class="resume-contact col-12 col-md-6 col-lg-4 col-xl-3">
           <ul class="list-unstyled mb-0">
-            <li class="mb-2"><i class="fas fa-phone-square fa-fw fa-lg mr-2 "></i><a class="resume-link" v-bind:href="'tel:${resume.acf.phone_number}'">{{resume.acf.phone_number}}</a></li>
-            <li class="mb-2"><i class="fas fa-envelope-square fa-fw fa-lg mr-2"></i><a class="resume-link" v-bind:href="'mailto:${resume.acf.email}'">{{ resume.acf.email }}</a></li>
-            <li class="mb-2"><i class="fas fa-globe fa-fw fa-lg mr-2"></i><a class="resume-link" v-bind:href="resume.acf.website.url"></a>{{  resume.acf.website.url }}</li>
-            <li class="mb-0"><i class="fas fa-map-marker-alt fa-fw fa-lg mr-2"></i>{{ resume.acf.location }}</li>
+            <li class="mb-2"><i class="fas fa-phone-square fa-fw fa-lg mr-2 "></i><a class="resume-link" v-bind:href="'tel:${resume.data.attributes.phone_number}'">{{resume.data.attributes.phone}}</a></li>
+            <li class="mb-2"><i class="fas fa-envelope-square fa-fw fa-lg mr-2"></i><a class="resume-link" v-bind:href="'mailto:${resume.data.attributes.email}'">{{ resume.data.attributes.email }}</a></li>
+            <li class="mb-2"><i class="fas fa-globe fa-fw fa-lg mr-2"></i><a class="resume-link" v-bind:href="resume.data.attributes.website"></a>{{  resume.data.attributes.website.url }}</li>
+            <li class="mb-0"><i class="fas fa-map-marker-alt fa-fw fa-lg mr-2"></i>{{ resume.data.attributes.location }}</li>
           </ul>
         </div><!--//resume-contact-->
       </div><!--//row-->
@@ -31,9 +31,9 @@
     <hr>
     <div class="resume-intro py-3">
       <div class="media flex-column flex-md-row align-items-center">
-        <img class="resume-profile-image mb-3 mb-md-0 mr-md-5 ml-md-0 rounded mx-auto" v-bind:src="myInfo.acf.headshot2" alt="image">
+        <!-- <img class="resume-profile-image mb-3 mb-md-0 mr-md-5 ml-md-0 rounded mx-auto" v-bind:src="`http://localhost:1337${myInfo.data.attributes.headshot1.data.attributes.url}`" alt="image"> -->
         <div class="media-body text-left">
-          <p class="mb-0">{{ resume.acf.summary }}</p>
+          <p class="mb-0">{{ resume.data.attributes.summary }}</p>
         </div><!--//media-body-->
       </div>
     </div><!--//resume-intro-->
@@ -43,13 +43,13 @@
         <div class="resume-main col-12 col-lg-8 col-xl-9 pr-0 pr-lg-5">
           <section class="work-section py-3">
             <h3 class="text-uppercase resume-section-heading mb-4">Work Experiences</h3>
-            <div v-for="experience in experiences" class="item mb-3 text-left">
+            <div v-for="experience in experiences.data" class="item mb-3 text-left">
               <div class="item-heading row align-items-center mb-2">
-                <h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">{{experience.acf.position}}</h4>
-                <div v-if="experience.still_work_here" class="item-meta col-12 col-md-6 col-lg-6 text-muted text-left text-md-right">{{experience.acf.company}} | {{ formatDate(experience.acf.start_date)}} - Present</div>
-                <div class="item-meta col-12 col-md-6 col-lg-6 text-muted text-left text-md-right" v-else>{{experience.acf.company}} | {{ formatDate(experience.acf.start_date)}} - {{experience.acf.end_date }}</div>
+                <h4 class="item-title col-12 col-md-6 col-lg-6 mb-2 mb-md-0">{{experience.attributes.position}}</h4>
+                <div v-if="experience.still_work_here" class="item-meta col-12 col-md-6 col-lg-6 text-muted text-left text-md-right">{{experience.attributes.company}} | {{ formatDate(experience.attributes.startDate)}} - Present</div>
+                <div class="item-meta col-12 col-md-6 col-lg-6 text-muted text-left text-md-right" v-else>{{experience.attributes.company}} | {{ formatDate(experience.attributes.startDate)}} - {{experience.attributes.endDate }}</div>
               </div>
-              <div class="item-content" v-html="experience.acf.description" />
+              <div class="item-content" v-html="experience.attributes.description" />
             </div><!--//item-->
             
           </section><!--//work-section-->
@@ -198,19 +198,19 @@ export default {
   },
   methods: {
     getMyInfo: function() {
-      axios.get("/wp/v2/my-info/89").then(response => {
+      axios.get("/professional?populate").then(response => {
         console.log("my-info ->", response);
         this.myInfo = response.data;
       });
     },
     getResume: function() {
-      axios.get("/wp/v2/resumes/" + this.$route.params.id).then(response => {
+      axios.get("/resumes/" + this.$route.params.id).then(response => {
         console.log("resume ->", response);
         this.resume = response.data;
       });
     },
     getExperiences: function() {
-      axios.get("/wp/v2/experiences/").then(response => {
+      axios.get("/experiences/").then(response => {
         console.log("experiences ->", response);
         this.experiences = response.data;
       });
