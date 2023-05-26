@@ -46,8 +46,8 @@
             <div v-for="experience in experiences.data" class="item mb-3 text-left">
               <div class="item-heading row align-items-center mb-2">
                 <h4 class="item-title col-12 col-md-6 col-lg-6 mb-2 mb-md-0">{{experience.attributes.position}}</h4>
-                <div v-if="experience.still_work_here" class="item-meta col-12 col-md-6 col-lg-6 text-muted text-left text-md-right">{{experience.attributes.company}} | {{ formatDate(experience.attributes.startDate)}} - Present</div>
-                <div class="item-meta col-12 col-md-6 col-lg-6 text-muted text-left text-md-right" v-else>{{experience.attributes.company}} | {{ formatDate(experience.attributes.startDate)}} - {{experience.attributes.endDate }}</div>
+                <div v-if="experience.still_work_here" class="item-meta col-12 col-md-6 col-lg-6 text-muted text-left text-md-right">{{experience.attributes.company}} | {{ experience.attributes.startDate}} - Present</div>
+                <div class="item-meta col-12 col-md-6 col-lg-6 text-muted text-left text-md-right" v-else>{{experience.attributes.company}} | {{ experience.attributes.startDate}} - {{experience.attributes.endDate }}</div>
               </div>
               <div class="item-content" v-html="experience.attributes.description" />
             </div><!--//item-->
