@@ -31,7 +31,7 @@
 						<div class="card project-card">
 							<div class="row no-gutters">
 								<div class="col-lg-12 card-img-holder">
-									<img v-bind:src="`http://localhost:1337${project.attributes.mainPhoto.data.attributes.url}`" class="card-img" alt="image">
+									<img v-bind:src="$apiHostname  + project.attributes.mainPhoto.data.attributes.url" class="card-img" alt="image">
 								</div>
 							</div>
 							<div class="row no-gutters">

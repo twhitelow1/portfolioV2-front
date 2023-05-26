@@ -31,7 +31,7 @@
     <hr>
     <div class="resume-intro py-3">
       <div class="media flex-column flex-md-row align-items-center">
-        <!-- <img class="resume-profile-image mb-3 mb-md-0 mr-md-5 ml-md-0 rounded mx-auto" v-bind:src="`http://localhost:1337${myInfo.data.attributes.headshot1.data.attributes.url}`" alt="image"> -->
+        <!-- <img class="resume-profile-image mb-3 mb-md-0 mr-md-5 ml-md-0 rounded mx-auto" v-bind:src="$apiHostname + myInfo.data.attributes.headshot1.data.attributes.url" alt="image"> -->
         <div class="media-body text-left">
           <p class="mb-0">{{ resume.data.attributes.summary }}</p>
         </div><!--//media-body-->

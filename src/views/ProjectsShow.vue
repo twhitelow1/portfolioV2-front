@@ -12,7 +12,7 @@
 	    <section class="project px-3 py-5 p-md-5">
 		    <div class="container">
 			    <div class="project-meta media flex-column flex-md-row p-4 theme-bg-light">
-				    <img class="project-thumb mb-3 mb-md-0 mr-md-5 rounded d-none d-md-inline-block" v-bind:src="`http://localhost:1337${project.data.attributes.mainPhoto.data.attributes.url}`" alt="">
+				    <img class="project-thumb mb-3 mb-md-0 mr-md-5 rounded d-none d-md-inline-block" v-bind:src="$apiHostname  + project.data.attributes.mainPhoto.data.attributes.url" alt="">
 					<div class="media-body">
 					    <div class="client-info">
 						    <h3 class="client-name font-weight-bold mb-4">Client Name: {{ project.data.attributes.clientName }}</h3>

@@ -12,7 +12,7 @@
       
       <div id="navigation" class="collapse navbar-collapse flex-column" >
         <div class="profile-section pt-3 pt-lg-0">
-          <a href="/"><img class="profile-image mb-3 rounded-circle mx-auto" v-bind:src="`http://localhost:1337${myInfo.data.attributes.headshot1.data.attributes.url}`" alt="image" ></a>			
+          <a href="/"><img class="profile-image mb-3 rounded-circle mx-auto" v-bind:src="$apiHostname + myInfo.data.attributes.headshot1.data.attributes.url" alt="image" ></a>			
           
           <div class="bio mb-3">{{myInfo.data.attributes.tagline}}</div><!--//bio-->
           <ul class="social-list list-inline py-2 mx-auto">
