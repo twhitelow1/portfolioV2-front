@@ -19,7 +19,7 @@
             <li class="list-inline-item"><a v-bind:href="myInfo.data.attributes.linkedin" alt="Todd Whitelow Jr's LinkedIn"><i class="fab fa-linkedin-in fa-fw" ></i></a></li>
             <li class="list-inline-item"><a v-bind:href="myInfo.data.attributes.github"><i class="fab fa-github-alt fa-fw" alt="Todd Whitelow Jr's Github"></i></a></li>
             <!-- <li class="list-inline-item"><a href="#"><i class="fab fa-stack-overflow fa-fw"></i></a></li> -->
-            <li class="list-inline-item"><a href="#"><i class="fab fa-codepen fa-fw"></i></a></li>
+            <li class="list-inline-item"><a v-bind:href="myInfo.data.attributes.codepen"><i class="fab fa-codepen fa-fw"></i></a></li>
           </ul><!--//social-list-->
           <hr> 
         </div><!--//profile-section-->

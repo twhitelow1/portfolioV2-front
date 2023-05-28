@@ -13,7 +13,7 @@
 						<!-- <li class="list-inline-item"><a class="instagram" href="#"><i class="fab fa-instagram fa-fw fa-lg"></i></a></li> -->
 						<!-- <li class="list-inline-item mb-3"><a class="stack-overflow" href="#"><i class="fab fa-stack-overflow fa-fw fa-lg"></i></a></li> -->
 						<!-- <li class="list-inline-item mb-3"><a class="medium" href="#"><i class="fab fa-medium-m fa-fw fa-lg"></i></a></li> -->
-						<li class="list-inline-item mb-3"><a class="codepen" href="https://codepen.io/twhitelow1"><i class="fab fa-codepen fa-fw fa-lg"></i></a></li>        
+						<li class="list-inline-item mb-3"><a class="codepen" v-bind:href="myInfo.data.attributes.codepen"><i class="fab fa-codepen fa-fw fa-lg"></i></a></li>        
 						<!--<li class="list-inline-item mb-3"><a class="facebook" href="#"><i class="fab fa-facebook-f fa-fw fa-lg"></i></a></li>-->
 					</ul><!--//social-list-->
 			  </div>
