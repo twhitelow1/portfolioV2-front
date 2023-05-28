@@ -61,7 +61,7 @@ import emailjs from 'emailjs-com';
 import axios from 'axios';
 
 export default {
-  name: 'ContactUs',
+  name: 'Contact',
   data() {
     return {
       name: '',
