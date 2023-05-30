@@ -146,6 +146,7 @@ export default {
       myInfo: {},
       resume: {},
       experiences: [],
+      experiencesLoading: true,
       interests: [],
       certifications: [],
       educations: [],
@@ -164,11 +165,16 @@ export default {
   },
   computed: {
     sortedExperiences() {
-      return this.experiences.data.slice().sort((a, b) => {
-        const orderA = a.attributes.orderOnResume || 0;
-        const orderB = b.attributes.orderOnResume || 0;
-        return orderA - orderB;
-      });
+      console.log("experiences check->" + this.experiences);
+      if (this.experiencesLoading) {
+        return []; // Return an empty array or any default value while experiences are loading
+      } else {
+        return this.experiences.data.slice().sort((a, b) => {
+          const orderA = a.attributes.orderOnResume || 0;
+          const orderB = b.attributes.orderOnResume || 0;
+          return orderA - orderB;
+        });
+      }
     }
   },
   methods: {
@@ -188,6 +194,7 @@ export default {
       axios.get("/experiences/").then(response => {
         console.log("experiences ->", response);
         this.experiences = response.data;
+        this.experiencesLoading = false;
       });
     },
     getInterests: function() {
