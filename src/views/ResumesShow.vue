@@ -59,11 +59,11 @@
             <h3 class="text-uppercase resume-section-heading mb-4">Projects</h3>
             <div v-for="project in projects.data">
               <div class="item mb-3"  v-if="project.attributes.showOnResume">
-                <div class="item-heading row align-items-center mb-2">
-                  <h4 class="item-title col-12 col-md-6 col-lg-6 mb-0 mb-md-0">{{ project.attributes.name }}</h4>
+                <div class="item-heading row align-items-left mb-2">
+                  <h4 class="item-title col-12 col-md-6 col-lg-6 mb-0 mb-md-0 text-left">{{ project.attributes.name }}</h4>
                   <div class="item-meta col-12 col-md-6 col-lg-6 text-muted text-left text-md-right">Open Source</div> 
                 </div>
-                <div class="item-content">
+                <div class="item-content text-left">
                   <p> {{ project.attributes.shortDescription }}<br/><a v-bind:href="`/projects/${project.id}`" class="theme-link">View Project</a>.</p>
                 </div>
               </div>
