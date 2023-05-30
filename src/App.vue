@@ -46,7 +46,7 @@
         </ul>
         
         <div class="my-2">
-          <a class="btn btn-primary" href="/contact" target="_blank"><i class="fas fa-paper-plane mr-2"></i>Hire Me</a>
+          <a class="btn btn-primary" href="/contact"><i class="fas fa-paper-plane mr-2"></i>Hire Me</a>
         </div>
         
       </div>
@@ -94,20 +94,20 @@
 // @ is an alias to /src
 import axios from "axios";
 export default {
-  data: function() {
+  data: function () {
     return {
       myInfo: {},
     };
   },
-  created: function() {
+  created: function () {
     this.getMyInfo();
   },
   methods: {
-    getMyInfo: function() {
-      axios.get("/professional?populate=*").then(response => {
+    getMyInfo: function () {
+      axios.get("/professional?populate=*").then((response) => {
         console.log("my-info ->", response);
         this.myInfo = response.data;
-        console.log( "Console professional->", this.myInfo);
+        console.log("Console professional->", this.myInfo);
       });
     },
   },

@@ -7,7 +7,7 @@
 			    <p>Welcome to my online portfolio.</p>
 			    
 			    </div>
-			    <a class="btn btn-primary" href="/contact" target="_blank"><i class="fas fa-paper-plane mr-2"></i>Hire Me</a>
+			    <a class="btn btn-primary" href="/contact"><i class="fas fa-paper-plane mr-2"></i>Hire Me</a>
 			    
 			    
 		    </div><!--//container-->
@@ -68,32 +68,31 @@
 import axios from "axios";
 
 export default {
-  data: function() {
+  data: function () {
     return {
       myInfo: {},
       projects: [],
     };
   },
-  created: function() {
+  created: function () {
     this.getMyInfo();
     this.getProjects();
   },
   methods: {
-    getMyInfo: function() {
-      axios.get("/professional?populate=*").then(response => {
+    getMyInfo: function () {
+      axios.get("/professional?populate=*").then((response) => {
         console.log("my-info ->", response);
         this.myInfo = response.data;
       });
     },
-    getProjects: function() {
-      axios.get("/projects?populate=*").then(response => {
+    getProjects: function () {
+      axios.get("/projects?populate=*").then((response) => {
         console.log("resume ->", response);
         this.projects = response.data;
       });
     },
   },
-  name: 'Home',
-  components: {
-  }
+  name: "Home",
+  components: {},
 };
 </script>
