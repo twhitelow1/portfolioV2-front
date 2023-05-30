@@ -48,7 +48,7 @@
             <div class="item mb-3 text-left" v-if="experience.attributes.showOnResume">
               <div class="item-heading row align-items-center mb-2">
                 <h4 class="item-title col-12 col-md-6 col-lg-6 mb-2 mb-md-0">{{experience.attributes.position}}</h4>
-                <div v-if="experience.stillEmployed" class="item-meta col-12 col-md-6 col-lg-6 text-muted text-left text-md-right">{{experience.attributes.company}} | {{ formatDate(experience.attributes.startDate)}} - Present</div>
+                <div v-if="experience.attributes.stillEmployed" class="item-meta col-12 col-md-6 col-lg-6 text-muted text-left text-md-right">{{experience.attributes.company}} | {{ formatDate(experience.attributes.startDate)}} - Present</div>
                 <div class="item-meta col-12 col-md-6 col-lg-6 text-muted text-left text-md-right" v-else>{{experience.attributes.company}} | {{ formatDate(experience.attributes.startDate)}} - {{formatDate(experience.attributes.endDate) }}</div>
               </div>
               <div class="item-content" v-html="experience.attributes.description" />
@@ -138,10 +138,10 @@
 <script>
 // @ is an alias to /src
 import axios from "axios";
-import moment from 'moment';
-  
+import moment from "moment";
+
 export default {
-  data: function() {
+  data: function () {
     return {
       myInfo: {},
       resume: {},
@@ -153,7 +153,7 @@ export default {
       projects: [],
     };
   },
-  created: function() {
+  created: function () {
     this.getMyInfo();
     this.getResume();
     this.getExperiences();
@@ -175,59 +175,58 @@ export default {
           return orderA - orderB;
         });
       }
-    }
+    },
   },
   methods: {
-    getMyInfo: function() {
-      axios.get("/professional?populate").then(response => {
+    getMyInfo: function () {
+      axios.get("/professional?populate").then((response) => {
         console.log("my-info ->", response);
         this.myInfo = response.data;
       });
     },
-    getResume: function() {
-      axios.get("/resumes/" + this.$route.params.id).then(response => {
+    getResume: function () {
+      axios.get("/resumes/" + this.$route.params.id).then((response) => {
         console.log("resume ->", response);
         this.resume = response.data;
       });
     },
-    getExperiences: function() {
-      axios.get("/experiences/").then(response => {
+    getExperiences: function () {
+      axios.get("/experiences/").then((response) => {
         console.log("experiences ->", response);
         this.experiences = response.data;
         this.experiencesLoading = false;
       });
     },
-    getInterests: function() {
-      axios.get("/interests/").then(response => {
+    getInterests: function () {
+      axios.get("/interests/").then((response) => {
         console.log("interests ->", response);
         this.interests = response.data;
       });
     },
-    getCertifications: function() {
-      axios.get("/certifications/").then(response => {
+    getCertifications: function () {
+      axios.get("/certifications/").then((response) => {
         console.log("certifications ->", response);
         this.certifications = response.data;
       });
     },
-    getEducations: function() {
-      axios.get("/educations/").then(response => {
+    getEducations: function () {
+      axios.get("/educations/").then((response) => {
         console.log("educations ->", response);
         this.educations = response.data;
       });
     },
-    getProjects: function() {
-      axios.get("/projects/").then(response => {
+    getProjects: function () {
+      axios.get("/projects/").then((response) => {
         console.log("projects ->", response);
         this.projects = response.data;
       });
     },
     formatDate(originalDate) {
-      return moment(originalDate).format('MM/DD/YYYY');
+      return moment(originalDate).format("MM/DD/YYYY");
     },
   },
-  name: 'Home',
-  components: {
-  }
+  name: "Home",
+  components: {},
 };
 </script>
   
