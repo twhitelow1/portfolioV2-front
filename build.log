@@ -1,0 +1,55 @@
+
+> porfolio-front-v2@0.1.0 build
+> vue-cli-service build
+
+
+ WARNING  Compiled with 1 warning9:21:10 AM
+
+ warning  
+
+asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+This can impact web performance.
+Assets: 
+  assets/images/promo-banner.jpg (371 KiB)
+  assets/images/blog/blog-post-banner.jpg (622 KiB)
+  assets/fontawesome/js/all.js (1.2 MiB)
+
+  File                                      Size             Gzipped
+
+  dist/assets/plugins/jquery-3.4.1.min.j    86.08 KiB        30.00 KiB
+  s
+  dist/assets/plugins/bootstrap/js/boots    58.64 KiB        14.46 KiB
+  trap.min.js
+  dist/assets/plugins/isotope.pkgd.min.j    34.61 KiB        9.61 KiB
+  s
+  dist/assets/plugins/jquery-validation/    22.72 KiB        7.33 KiB
+  jquery.validate.min.js
+  dist/assets/plugins/popper.min.js         20.70 KiB        7.30 KiB
+  dist/assets/plugins/imagesloaded.pkgd.    5.46 KiB         1.77 KiB
+  min.js
+  dist/assets/plugins/js-cookie.min.js      1.88 KiB         1.01 KiB
+  dist/assets/fontawesome/js/all.js         1232.71 KiB      441.99 KiB
+  dist/js/chunk-vendors.802c3ac4.js         152.74 KiB       52.77 KiB
+  dist/js/app.98bfc607.js                   58.22 KiB        10.42 KiB
+  dist/assets/plugins/tiny-slider/min/ti    31.22 KiB        12.46 KiB
+  ny-slider.js
+  dist/assets/js/demo/style-switcher.js     1.13 KiB         0.43 KiB
+  dist/assets/js/isotope-custom.js          0.87 KiB         0.39 KiB
+  dist/assets/js/dark-mode.js               0.84 KiB         0.40 KiB
+  dist/assets/js/pricing.js                 0.77 KiB         0.37 KiB
+  dist/js/about.6a7f05e2.js                 0.69 KiB         0.42 KiB
+  dist/assets/js/form.js                    0.50 KiB         0.24 KiB
+  dist/assets/js/testimonials.js            0.47 KiB         0.25 KiB
+  dist/assets/js/blog.js                    0.21 KiB         0.17 KiB
+  dist/assets/css/theme-1.css               168.08 KiB       27.04 KiB
+  dist/assets/plugins/tiny-slider/tiny-s    2.13 KiB         0.72 KiB
+  lider.css
+  dist/assets/plugins/highlight/styles/m    1.00 KiB         0.44 KiB
+  onokai-sublime.css
+  dist/css/app.5c9713c3.css                 0.25 KiB         0.19 KiB
+
+  Images and other types of assets omitted.
+
+ DONE  Build complete. The dist directory is ready to be deployed.
+ INFO  Check out deployment instructions at https://cli.vuejs.org/guide/deployment.html
+      

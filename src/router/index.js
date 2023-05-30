@@ -59,7 +59,7 @@ const routes = [
     path: '/contact',
     name: 'contact',
     component: Contact
-  }
+  },
 ];
 
 const router = new VueRouter({

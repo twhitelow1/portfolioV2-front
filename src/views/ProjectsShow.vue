@@ -12,19 +12,18 @@
 	    <section class="project px-3 py-5 p-md-5">
 		    <div class="container">
 			    <div class="project-meta media flex-column flex-md-row p-4 theme-bg-light">
-				    <img class="project-thumb mb-3 mb-md-0 mr-md-5 rounded d-none d-md-inline-block" v-bind:src="$apiHostname  + project.data.attributes.mainPhoto.data.attributes.url" alt="">
 					<div class="media-body">
+						<img class="project-thumb mb-3 mb-md-0 rounded img-responsive d-md-inline-block" v-bind:src="$apiHostname  + project.data.attributes.mainPhoto.data.attributes.url" alt="">
 					    <div class="client-info">
 						    <h3 class="client-name font-weight-bold mb-4">Client Name: {{ project.data.attributes.clientName }}</h3>
 						    <ul class="client-meta list-unstyled">
 							    
 							    
-							    <li class="mb-2"><strong><i class="fas fa-link fa-fw mr-2"></i>Website:{{ project.data.attributes.liveDemo }}</strong> <a class="theme-link"></a></li>
+							    <li v-if="project.data.attributes.liveDemo" class="mb-2"><strong><i class="fas fa-link fa-fw mr-2"></i>Live Demo:{{ project.data.attributes.liveDemo }}</strong> <a class="theme-link"></a></li>
 							    
 						    </ul>
-						    <div class="client-bio mb-4">{{ project.data.attributes.shortDescription }}</div>
-						    <h4 class="subheading mb-3" >Project Requirements</h4></div>
-								<div v-html="project.data.attributes.requirements"></div>					
+						    <!-- <div class="client-bio mb-4">{{ project.data.attributes.shortDescription }}</div> -->
+						    </div>				
 					</div><!--//media-body-->
 				</div><!--//project-meta-->
 				<div class="project-sections py-5">
