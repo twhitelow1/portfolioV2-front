@@ -42,8 +42,10 @@
       <div class="row">
         <div class="resume-main col-12 col-lg-8 col-xl-9 pr-0 pr-lg-5">
           <section class="work-section py-3">
-            <h3 class="text-uppercase resume-section-heading mb-4">Work Experiences</h3>
-            <div v-for="experience in experiences.data" class="item mb-3 text-left">
+            
+          <h3 class="text-uppercase resume-section-heading mb-4">Work Experiences</h3>
+          <div v-for="experience in sortedExperiences" :key="experience.id">
+            <div class="item mb-3 text-left" v-if="experience.attributes.showOnResume">
               <div class="item-heading row align-items-center mb-2">
                 <h4 class="item-title col-12 col-md-6 col-lg-6 mb-2 mb-md-0">{{experience.attributes.position}}</h4>
                 <div v-if="experience.still_work_here" class="item-meta col-12 col-md-6 col-lg-6 text-muted text-left text-md-right">{{experience.attributes.company}} | {{ experience.attributes.startDate}} - Present</div>
@@ -51,9 +53,8 @@
               </div>
               <div class="item-content" v-html="experience.attributes.description" />
             </div><!--//item-->
-            
+          </div>
           </section><!--//work-section-->
-
           <section class="project-section py-3">
             <h3 class="text-uppercase resume-section-heading mb-4">Projects</h3>
             <div v-for="project in projects.data">
@@ -158,6 +159,15 @@ export default {
     this.getCertifications();
     this.getEducations();
     this.getProjects();
+  },
+  computed: {
+    sortedExperiences() {
+      return this.experiences.data.slice().sort((a, b) => {
+        const orderA = a.attributes.orderOnResume || 0;
+        const orderB = b.attributes.orderOnResume || 0;
+        return orderA - orderB;
+      });
+    }
   },
   methods: {
     getMyInfo: function() {
