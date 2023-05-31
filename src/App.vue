@@ -6,11 +6,11 @@
     
     <nav class="navbar navbar-expand-lg navbar-dark" >
       
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" @click="toggleNavigation" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       
-      <div id="navigation" class="collapse navbar-collapse flex-column" >
+      <div id="navigation" :class="{ 'collapse': !isActive, 'navbar-collapse': true, 'flex-column': true }">
         <div class="profile-section pt-3 pt-lg-0">
           <a href="/"><img class="profile-image mb-3 rounded-circle mx-auto" v-bind:src="$apiHostname + myInfo.data.attributes.headshot1.data.attributes.url" alt="image" ></a>			
           
@@ -97,6 +97,7 @@ export default {
   data: function () {
     return {
       myInfo: {},
+      isActive: false,
     };
   },
   created: function () {
@@ -109,6 +110,9 @@ export default {
         this.myInfo = response.data;
         console.log("Console professional->", this.myInfo);
       });
+    },
+    toggleNavigation() {
+      this.isActive = !this.isActive;
     },
   },
 };
