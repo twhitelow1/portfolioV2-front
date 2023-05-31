@@ -19,8 +19,10 @@
 						    <ul class="client-meta list-unstyled">
 							    
 							    
-							    <li v-if="project.data.attributes.liveDemoLink" class="mb-2"><strong><i class="fas fa-link fa-fw mr-2"></i>Live Link: <a v-bind:href="project.data.attributes.liveDemoLink" target="">{{ project.data.attributes.liveDemoLink }}</a></strong> <a class="theme-link"></a></li>
-							    
+							    <li v-if="project.data.attributes.liveDemoLink" class="mb-2"><strong><i class="fas fa-link fa-fw mr-2"></i>Live Demo: <a v-bind:href="project.data.attributes.liveDemoLink" target="" class="theme-link">{{ project.data.attributes.liveDemoLink }}</a></strong></li>
+									<li v-if="project.data.attributes.videoWalkthroughLink" class="mb-2"><strong><i class="fas fa-link fa-fw mr-2"></i>Video Walkthrough: <a v-bind:href="project.data.attributes.videoWalkthroughLink" target="" class="theme-link">{{ project.data.attributes.videoWalkthroughLink }}</a></strong></li>
+									<li v-if="project.data.attributes.frontCodebase" class="mb-2"><strong><i class="fas fa-link fa-fw mr-2"></i>Frontend Codebase: <a v-bind:href="project.data.attributes.frontCodebase" target="" class="theme-link">{{ project.data.attributes.frontCodebase }}</a></strong></li>
+							    <li v-if="project.data.attributes.endCodebase" class="mb-2"><strong><i class="fas fa-link fa-fw mr-2"></i>Backend Codebase: <a v-bind:href="project.data.attributes.backCodebase" target="" class="theme-link">{{ project.data.attributes.backCodebase }}</a></strong></li>
 						    </ul>
 						    <!-- <div class="client-bio mb-4">{{ project.data.attributes.shortDescription }}</div> -->
 						    </div>				
