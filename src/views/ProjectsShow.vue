@@ -19,7 +19,7 @@
 						    <ul class="client-meta list-unstyled">
 							    
 							    
-							    <li v-if="project.data.attributes.liveDemo" class="mb-2"><strong><i class="fas fa-link fa-fw mr-2"></i>Live Demo:{{ project.data.attributes.liveDemo }}</strong> <a class="theme-link"></a></li>
+							    <li v-if="project.data.attributes.liveDemoLink" class="mb-2"><strong><i class="fas fa-link fa-fw mr-2"></i>Live Link: <a v-bind:href="project.data.attributes.liveDemoLink" target="">{{ project.data.attributes.liveDemoLink }}</a></strong> <a class="theme-link"></a></li>
 							    
 						    </ul>
 						    <!-- <div class="client-bio mb-4">{{ project.data.attributes.shortDescription }}</div> -->
@@ -72,32 +72,31 @@
 import axios from "axios";
 
 export default {
-  data: function() {
+  data: function () {
     return {
       myInfo: {},
       project: {},
     };
   },
-  created: function() {
+  created: function () {
     this.getMyInfo();
     this.getProject();
   },
   methods: {
-    getMyInfo: function() {
-      axios.get("/professional?populate=*").then(response => {
+    getMyInfo: function () {
+      axios.get("/professional?populate=*").then((response) => {
         console.log("my-info ->", response);
         this.myInfo = response.data;
       });
     },
-    getProject: function() {
-      axios.get("/projects/" + this.$route.params.id + "?populate=*").then(response => {
+    getProject: function () {
+      axios.get("/projects/" + this.$route.params.id + "?populate=*").then((response) => {
         console.log("project ->", response);
         this.project = response.data;
       });
     },
   },
-  name: 'Home',
-  components: {
-  }
+  name: "Home",
+  components: {},
 };
 </script>
