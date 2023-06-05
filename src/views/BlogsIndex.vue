@@ -20,7 +20,7 @@
 						<div class="card blog-post-card">
 							<!-- <img class="card-img-top" v-bind:src="blog.attributes.previewPhoto" alt="image" /> -->
 							<div class="card-body">
-								<h5 class="card-title"><a class="theme-link" href="blog-post.html">{{ blog.attributes.title }}</a></h5>
+								<h5 class="card-title"><a class="theme-link" v-bind:href="`/blogs/${blog.id}`">{{ blog.attributes.title }}</a></h5>
 								<p class="card-text" v-html="blog.attributes.snippet"></p>
 								<p class="mb-0"><a class="more-link" v-bind:href="`/blogs/${blog.id}`">Read more &rarr;</a></p>
 								
