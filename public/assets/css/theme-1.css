@@ -12146,6 +12146,10 @@ a.resume-link:hover {
     top: 1.2rem
   }
 
+  .blog-name {
+    display: none;
+  }
+
   .header .btn-primary {
     width: 100%
   }
