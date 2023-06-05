@@ -51,7 +51,7 @@ const routes = [
     component: BlogsShow
   },
   {
-    path: '/blog',
+    path: '/blogs',
     name: 'blogs-index',
     component: BlogsIndex
   },

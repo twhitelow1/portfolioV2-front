@@ -16,83 +16,17 @@
 	    <section class="blog-list px-3 py-5 p-md-5">
 		    <div class="container">
 			    <div class="row">
-					<div class="col-md-4 mb-3">
+					<div class="col-md-4 mb-3" v-for="blog in blogs.data">
 						<div class="card blog-post-card">
-							<img class="card-img-top" src="assets/images/blog/blog-post-thumb-card-1.jpg" alt="image">
+							<img class="card-img-top" v-bind:src="blog.attributes.previewPhoto" alt="image">
 							<div class="card-body">
-								<h5 class="card-title"><a class="theme-link" href="blog-post.html">Top 3 JavaScript Frameworks</a></h5>
-								<p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient...</p>
-								<p class="mb-0"><a class="more-link" href="blog-post.html">Read more &rarr;</a></p>
+								<h5 class="card-title"><a class="theme-link" href="blog-post.html">{{ blog.attributes.title }}</a></h5>
+								<p class="card-text" v-html="blog.attributes.snippet"></p>
+								<p class="mb-0"><a class="more-link" v-bind:href="`/blogs/${blog.id}`">Read more &rarr;</a></p>
 								
 							</div>
-							<div class="card-footer">
+							<div class="card-footer"> 
 								<small class="text-muted">Published 2 days ago</small>
-							</div>
-						</div><!--//card-->
-					</div><!--//col-->
-					<div class="col-md-4 mb-3">
-						<div class="card blog-post-card">
-							<img class="card-img-top" src="assets/images/blog/blog-post-thumb-card-2.jpg" alt="image">
-							<div class="card-body">
-								<h5 class="card-title"><a class="theme-link" href="blog-post.html">About Remote Working</a></h5>
-								<p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient...</p>
-								<p class="mb-0"><a class="more-link" href="blog-post.html">Read more &rarr;</a></p>
-							</div>
-							<div class="card-footer">
-								<small class="text-muted">Published a week ago</small>
-								
-							</div>
-						</div><!--//card-->
-					</div><!--//col-->
-					<div class="col-md-4 mb-3">
-						<div class="card blog-post-card">
-							<img class="card-img-top" src="assets/images/blog/blog-post-thumb-card-3.jpg" alt="image">
-							<div class="card-body">
-								<h5 class="card-title"><a class="theme-link" href="blog-post.html">A Guide to Becoming a Full-Stack Developer</a></h5>
-								<p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient...</p>
-								<p class="mb-0"><a class="more-link" href="blog-post.html">Read more &rarr;</a></p>
-							</div>
-							<div class="card-footer">
-								<small class="text-muted">Published 3 weeks ago</small>
-							</div>
-						</div><!--//card-->
-					</div><!--//col-->
-					<div class="col-md-4 mb-3">
-						<div class="card blog-post-card">
-							<img class="card-img-top" src="assets/images/blog/blog-post-thumb-card-4.jpg" alt="image">
-							<div class="card-body">
-								<h5 class="card-title"><a class="theme-link" href="blog-post.html">High Performance JavaScript</a></h5>
-								<p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient...</p>
-								<p class="mb-0"><a class="more-link" href="blog-post.html">Read more &rarr;</a></p>
-							</div>
-							<div class="card-footer">
-								<small class="text-muted">Published 1 month ago</small>
-							</div>
-						</div><!--//card-->
-					</div><!--//col-->
-					<div class="col-md-4 mb-3">
-						<div class="card blog-post-card">
-							<img class="card-img-top" src="assets/images/blog/blog-post-thumb-card-5.jpg" alt="image">
-							<div class="card-body">
-								<h5 class="card-title"><a class="theme-link" href="blog-post.html">Learn React in 24 Hours</a></h5>
-								<p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient...</p>
-								<p class="mb-0"><a class="more-link" href="blog-post.html">Read more &rarr;</a></p>
-							</div>
-							<div class="card-footer">
-								<small class="text-muted">Published 1 month ago</small>
-							</div>
-						</div><!--//card-->
-					</div><!--//col-->
-					<div class="col-md-4 mb-3">
-						<div class="card blog-post-card">
-							<img class="card-img-top" src="assets/images/blog/blog-post-thumb-card-6.jpg" alt="image">
-							<div class="card-body">
-								<h5 class="card-title"><a class="theme-link" href="blog-post.html">How to Build Desktop Apps with HTML, CSS and JavaScript</a></h5>
-								<p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient...</p>
-								<p class="mb-0"><a class="more-link" href="blog-post.html">Read more &rarr;</a></p>
-							</div>
-							<div class="card-footer">
-								<small class="text-muted">Published 2 months ago</small>
 							</div>
 						</div><!--//card-->
 					</div><!--//col-->
@@ -114,32 +48,31 @@
 import axios from "axios";
 
 export default {
-  data: function() {
+  data: function () {
     return {
       myInfo: {},
-      projects: [],
+      blogs: [],
     };
   },
-  created: function() {
+  created: function () {
     this.getMyInfo();
-    this.getProjects();
+    this.getBlogs();
   },
   methods: {
-    getMyInfo: function() {
-      axios.get("/wp/v2/my-info/89").then(response => {
+    getMyInfo: function () {
+      axios.get("my-info/1").then((response) => {
         console.log("my-info ->", response);
         this.myInfo = response.data;
       });
     },
-    getProjects: function() {
-      axios.get("/wp/v2/projects").then(response => {
-        console.log("resume ->", response);
-        this.projects = response.data;
+    getBlogs: function () {
+      axios.get("blogs").then((response) => {
+        console.log("blogs ->", response);
+        this.blogs = response.data;
       });
     },
   },
-  name: 'Home',
-  components: {
-  }
+  name: "Home",
+  components: {},
 };
 </script>
