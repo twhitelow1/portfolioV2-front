@@ -37,9 +37,9 @@
           <li class="nav-item">
             <a class="nav-link" href="/resumes/1"><i class="fas fa-file-alt fa-fw mr-2"></i>Resume</a>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="/blog"><i class="fas fa-blog fa-fw mr-2"></i>Blog</a>
-          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="/blogs"><i class="fas fa-blog fa-fw mr-2"></i>Blog</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="/contact"><i class="fas fa-envelope-open-text fa-fw mr-2"></i>Contact</a>
           </li>
