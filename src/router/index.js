@@ -46,7 +46,7 @@ const routes = [
     component: Services
   },
   {
-    path: '/blog/:id',
+    path: '/blogs/:id',
     name: 'blogs-show',
     component: BlogsShow
   },

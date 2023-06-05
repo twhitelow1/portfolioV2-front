@@ -18,7 +18,7 @@
 			    <div class="row">
 					<div class="col-md-4 mb-3" v-for="blog in blogs.data">
 						<div class="card blog-post-card">
-							<img class="card-img-top" v-bind:src="blog.attributes.previewPhoto" alt="image">
+							<img class="card-img-top" v-bind:src="blog.attributes.previewPhoto" alt="image" />
 							<div class="card-body">
 								<h5 class="card-title"><a class="theme-link" href="blog-post.html">{{ blog.attributes.title }}</a></h5>
 								<p class="card-text" v-html="blog.attributes.snippet"></p>
@@ -26,7 +26,7 @@
 								
 							</div>
 							<div class="card-footer"> 
-								<small class="text-muted">Published 2 days ago</small>
+								<small class="text-muted">{{ getPublishedDaysAgo(blog.attributes.updatedAt) }}</small>
 							</div>
 						</div><!--//card-->
 					</div><!--//col-->
@@ -59,6 +59,18 @@ export default {
     this.getBlogs();
   },
   methods: {
+    getPublishedDaysAgo(updatedAt) {
+      const today = new Date();
+      const updatedDate = new Date(updatedAt);
+      const timeDiff = Math.abs(today.getTime() - updatedDate.getTime());
+      const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+      if (diffDays === 1) {
+        return "Published 1 day ago";
+      } else {
+        return `Published ${diffDays} days ago`;
+      }
+    },
     getMyInfo: function () {
       axios.get("my-info/1").then((response) => {
         console.log("my-info ->", response);
