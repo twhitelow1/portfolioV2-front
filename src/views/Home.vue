@@ -10,8 +10,8 @@
           <div class="bio mb-4" v-animate-on-scroll="{ animation: 'fadeIn', speed: '4s' }">{{ myInfo.data.attributes.ElevatorPitch }}. Want to know how I may help your project? Check out my project <a class="link-on-bg" href="/projects">portfolio</a> and <a class="link-on-bg" href="/resumes/1">online resume</a>.
           </div><!--//bio-->
           <div class="mb-4">
-            <a class="btn btn-primary mr-2 mb-3" href="/projects" v-animate-on-scroll="{ animation: 'fadeIn', speed: '6s' }"><i class="fas fa-arrow-alt-circle-right mr-2"></i><span class="d-none d-md-inline">View</span> Portfolio</a>
-            <a class="btn btn-secondary mb-3" href="/resumes/1" v-animate-on-scroll="{ animation: 'fadeIn', speed: '6s' }"><i class="fas fa-file-alt mr-2"></i><span class="d-none d-md-inline">View</span> Resume</a>
+            <a class="btn btn-primary mr-2 mb-3" href="/projects" v-animate-on-scroll="{ animation: 'fadeIn', speed: '4s' }"><i class="fas fa-arrow-alt-circle-right mr-2"></i><span class="d-none d-md-inline">View</span> Portfolio</a>
+            <a class="btn btn-secondary mb-3" href="/resumes/1" v-animate-on-scroll="{ animation: 'fadeIn', speed: '4s' }"><i class="fas fa-file-alt mr-2"></i><span class="d-none d-md-inline">View</span> Resume</a>
           </div>
         </div><!--//media-body-->
         <img class="profile-image mb-3 mb-lg-0 ml-lg-5 mr-md-0" v-bind:src="$apiHostname + myInfo.data.attributes.headshot2.data.attributes.url" alt="Todd Whitelow's Headshot
