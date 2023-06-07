@@ -167,6 +167,7 @@ export default {
     return {
       myInfo: {},
       projects: [],
+      currentProject: {},
     };
   },
   created: function () {
@@ -174,6 +175,10 @@ export default {
     this.getProjects();
   },
   methods: {
+    showProject: function (project) {
+      this.currentProject = project;
+      document.querySelector("#project-details").showModal();
+    },
     getMyInfo: function () {
       axios.get("/professional?populate=*").then((response) => {
         console.log("my-info ->", response);
