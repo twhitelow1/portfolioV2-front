@@ -25,13 +25,13 @@
       <div class="row">
         <div class="item col-6 col-lg-3" v-animate-on-scroll="{ animation: 'bounceInUp', speed: '2s' }">
           <div class="item-inner">
-            <div class="item-icon"><img style="max-width:100px; max-height:100px;" src="/certs/comptia-a-ce-certification.1.png"/></div>CompTIA A+</h3>
+            <div class="item-icon"><img style="max-width:100px; max-height:100px;" src="/assets/certs/comptia-a-ce-certification.1.png"/></div>CompTIA A+</h3>
             <div class="item-desc">This certifies my expertise in mobile devices, networking technology, hardware, virtualization, cloud computing, network troubleshootin, installing and configuring operating systems, expanded security, software troubleshooting and operational procedures</div>
           </div><!--//item-inner-->
         </div><!--//item-->
         <div class="item col-6 col-lg-3" v-animate-on-scroll="{ animation: 'bounceInUp', speed: '2s' }">
           <div class="item-inner">
-            <div class="item-icon"><img style="max-width:100px; max-height:100px;" src="/certs/actualize-logo.png" /></div>
+            <div class="item-icon"><img style="max-width:100px; max-height:100px;" src="/assets/certs/actualize-logo.png" /></div>
             <h3 class="item-title"> Actualize Bootcamp Software Engineering</h3>
             <div class="item-desc">Attending this bootcamp I learned how to think like a software engineer. I used ruby on rails and VueJS to create full stack applications. </div>
           </div><!--//item-inner-->
@@ -39,7 +39,7 @@
         
         <div class="item col-6 col-lg-3" v-animate-on-scroll="{ animation: 'bounceInUp', speed: '2s' }">
           <div class="item-inner">
-            <div class="item-icon" ><img style="max-width:100px; max-height:100px;" src="/certs/google-it-support-certificate-2023.png" /></div>
+            <div class="item-icon" ><img style="max-width:100px; max-height:100px;" src="/assets/certs/google-it-support-certificate-2023.png" /></div>
             <h3 class="item-title">Google IT Support Professional Certificate</h3>
             <div class="item-desc">Gained a solid foundation in various skills and knowledge areas within the IT support field. Here are some of the skills I gained:
 Troubleshooting and problem-solving,Networking, Operating systems, System administration, IT security and privacy,Customer service, IT automation, Hardware and software troubleshooting,  </div>
