@@ -19,6 +19,36 @@
       </div>
     </div>
   </section><!--//about-me-section-->
+  <section class="overview-section p-3 p-lg-5">
+    <div class="container">
+      <h2 class="section-title font-weight-bold mb-3">My Current Certifications</h2>
+      <div class="row">
+        <div class="item col-6 col-lg-3" v-animate-on-scroll="{ animation: 'bounceInUp', speed: '2s' }">
+          <div class="item-inner">
+            <div class="item-icon"><img style="max-width:100px; max-height:100px;" src="/certs/comptia-a-ce-certification.1.png"/></div>CompTIA A+</h3>
+            <div class="item-desc">This certifies my expertise in mobile devices, networking technology, hardware, virtualization, cloud computing, network troubleshootin, installing and configuring operating systems, expanded security, software troubleshooting and operational procedures</div>
+          </div><!--//item-inner-->
+        </div><!--//item-->
+        <div class="item col-6 col-lg-3" v-animate-on-scroll="{ animation: 'bounceInUp', speed: '2s' }">
+          <div class="item-inner">
+            <div class="item-icon"><img style="max-width:100px; max-height:100px;" src="/certs/actualize-logo.png" /></div>
+            <h3 class="item-title"> Actualize Bootcamp Software Engineering</h3>
+            <div class="item-desc">Attending this bootcamp I learned how to think like a software engineer. I used ruby on rails and VueJS to create full stack applications. </div>
+          </div><!--//item-inner-->
+        </div><!--//item-->
+        
+        <div class="item col-6 col-lg-3" v-animate-on-scroll="{ animation: 'bounceInUp', speed: '2s' }">
+          <div class="item-inner">
+            <div class="item-icon" ><img style="max-width:100px; max-height:100px;" src="/certs/google-it-support-certificate-2023.png" /></div>
+            <h3 class="item-title">Google IT Support Professional Certificate</h3>
+            <div class="item-desc">Gained a solid foundation in various skills and knowledge areas within the IT support field. Here are some of the skills I gained:
+Troubleshooting and problem-solving,Networking, Operating systems, System administration, IT security and privacy,Customer service, IT automation, Hardware and software troubleshooting,  </div>
+          </div><!--//item-inner-->
+        </div><!--//item-->
+      </div><!--//row-->
+
+    </div><!--//container-->
+  </section>
   
   <section class="overview-section p-3 p-lg-5">
     <div class="container">
@@ -139,11 +169,19 @@
             <div class="link-mask">
               <a class="link-mask-link" v-bind:href="`projects/${project.id}`"></a>
               <div class="link-mask-text">
-                <a class="btn btn-secondary" v-bind:href="`projects/${project.id}`">
-                  <i class="fas fa-eye mr-2"></i>View Case Study
-                </a>
+                <button class="btn btn-secondary" v-on:click="showProject(project.attributes)">
+                  <i class="fas fa-eye mr-2"></i>More info
+                </button>
               </div>
             </div><!--//link-mask-->
+            <dialog id="project-details">
+              <form method="dialog">
+                <h1>Project </h1>
+                <p>Name: {{ currentProject.name }}</p>
+                <p>Description: {{ currentProject.summary }}</p>
+                <button>Close</button>
+              </form>
+            </dialog>
           </div><!--//card-->
         </div><!--//col-->        
       </div><!--//row-->
