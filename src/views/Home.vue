@@ -25,7 +25,8 @@
       <div class="row">
         <div class="item col-6 col-lg-3" v-animate-on-scroll="{ animation: 'bounceInUp', speed: '2s' }">
           <div class="item-inner">
-            <div class="item-icon"><img style="max-width:100px; max-height:100px;" src="/assets/certs/comptia-a-ce-certification.1.png"/></div>CompTIA A+</h3>
+            <div class="item-icon"><img style="max-width:100px; max-height:100px;" src="/assets/certs/comptia-a-ce-certification.1.png"/></div>
+            <h3 class="item-title">CompTIA A+</h3>
             <div class="item-desc">This certifies my expertise in mobile devices, networking technology, hardware, virtualization, cloud computing, network troubleshootin, installing and configuring operating systems, expanded security, software troubleshooting and operational procedures</div>
           </div><!--//item-inner-->
         </div><!--//item-->
